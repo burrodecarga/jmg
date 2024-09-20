@@ -1,0 +1,972 @@
+[
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "matemáticas"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "aritmética"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "geometría"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "estadística"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "humanidades"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "lengua castellana"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "interpretación y comprensión textual"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "producción y comprension textual"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "ingles"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "ciencias naturales y educación ambiental"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "biología"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "física"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "química"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "ciencias sociales"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "geografía"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "história"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "democracia"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "filosofía"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "educación ética y valores humanos"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "religión"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "educación artítica"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "educación física"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "tecnología e informática"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "emprendimiento"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "proyectos"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "laboratorio de tecnología"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "laboratorio de física"
+    },
+    {
+        "id": 9,
+        "grado": "sexto grado",
+        "name": "convivencia"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "matemáticas"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "aritmética"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "geometría"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "estadística"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "humanidades"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "lengua castellana"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "interpretación y comprensión textual"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "producción y comprension textual"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "ingles"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "ciencias naturales y educación ambiental"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "biología"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "física"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "química"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "ciencias sociales"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "geografía"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "história"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "democracia"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "filosofía"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "educación ética y valores humanos"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "religión"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "educación artítica"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "educación física"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "tecnología e informática"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "emprendimiento"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "proyectos"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "laboratorio de tecnología"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "laboratorio de física"
+    },
+    {
+        "id": 10,
+        "grado": "séptimo grado",
+        "name": "convivencia"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "matemáticas"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "aritmética"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "álgebra"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "geometría"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "estadística"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "humanidades"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "lengua castellana"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "interpretación y comprensión textual"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "producción y comprension textual"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "ingles"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "ciencias naturales y educación ambiental"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "biología"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "física"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "química"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "ciencias sociales"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "geografía"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "história"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "democracia"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "filosofía"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "educación ética y valores humanos"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "religión"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "educación artítica"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "educación física"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "tecnología e informática"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "emprendimiento"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "pruebas saber"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "proyectos"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "laboratorio de tecnología"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "laboratorio de física"
+    },
+    {
+        "id": 11,
+        "grado": "octavo grado",
+        "name": "convivencia"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "matemáticas"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "aritmética"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "geometría"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "estadística"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "humanidades"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "lengua castellana"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "interpretación y comprensión textual"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "producción y comprension textual"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "ingles"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "ciencias naturales y educación ambiental"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "biología"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "física"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "química"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "ciencias sociales"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "geografía"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "história"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "democracia"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "filosofía"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "educación ética y valores humanos"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "religión"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "educación artítica"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "educación física"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "tecnología e informática"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "emprendimiento"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "proyectos"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "laboratorio de tecnología"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "laboratorio de física"
+    },
+    {
+        "id": 12,
+        "grado": "noveno grado",
+        "name": "convivencia"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "matemáticas"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "aritmética"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "trigonometría"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "geometría"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "estadística"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "humanidades"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "lengua castellana"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "interpretación y comprensión textual"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "producción y comprension textual"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "ingles"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "ciencias naturales y educación ambiental"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "biología"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "física"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "química"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "ciencias sociales"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "geografía"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "história"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "democracia"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "ciencias económicas y políticas"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "filosofía"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "ciencias humanas"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "educación ética y valores humanos"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "religión"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "educación artítica"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "educación física"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "tecnología e informática"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "pruebas saber"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "competencias comunicatívas"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "pensamiento social y reflexivo"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "razonamiento matemático"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "competencias científicas-física"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "conocimiento científico biología-química"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "lectura y traducción idioma extranjero"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "técnica diseño multimedia"
+    },
+    {
+        "id": 13,
+        "grado": "décimo grado",
+        "name": "convivencia"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "matemáticas"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "aritmética"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "trigonometría"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "geometría"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "estadística"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "humanidades"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "lengua castellana"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "interpretación y comprensión textual"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "producción y comprension textual"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "ingles"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "ciencias naturales y educación ambiental"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "biología"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "física"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "química"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "ciencias sociales"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "ciencias económicas y políticas"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "geografía"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "história"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "democracia"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "cátedra de paz y ciudadanía"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "filosofía"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "ciencias humanas"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "educación ética y valores humanos"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "religión"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "educación artítica"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "educación física"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "tecnología e informática"
+    },
+    {
+        "id": 14,
+        "grado": "décimo grado",
+        "name": "competencias comunicatívas"
+    },
+    {
+        "id": 14,
+        "grado": "décimo grado",
+        "name": "pensamiento social y reflexivo"
+    },
+    {
+        "id": 14,
+        "grado": "décimo grado",
+        "name": "razonamiento matemático"
+    },
+    {
+        "id": 14,
+        "grado": "décimo grado",
+        "name": "competencias científicas-física"
+    },
+    {
+        "id": 14,
+        "grado": "décimo grado",
+        "name": "conocimiento científico biología-química"
+    },
+    {
+        "id": 14,
+        "grado": "décimo grado",
+        "name": "lectura y traducción idioma extranjero"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "emprendimiento"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "proyectos"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "laboratorio de tecnología"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "sistemas teleinformáticos"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "laboratorio de física"
+    },
+    {
+        "id": 14,
+        "grado": "undécimo grado",
+        "name": "convivencia"
+    }
+]

@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "  I.E.D. TECNICA LORENCITA VILLEGAS DE SANTOS",
+        "nit": "900128472-9",
+        "dane": "147245000252",
+        "logo": "",
+        "image": "",
+        "created_at": "2021-12-19 14:17:30",
+        "updated_at": "2021-12-19 14:17:30"
+    },
+    {
+        "id": 2,
+        "name": "  I.U.T.V. INSTITUTO TECNOLÓGICO VALENCIA",
+        "nit": "4590128472-9",
+        "dane": "1787245000252",
+        "logo": "",
+        "image": "",
+        "created_at": "2021-12-19 14:17:30",
+        "updated_at": "2021-12-19 14:17:30"
+    },
+    {
+        "id": 3,
+        "name": "  LICEO PEDRO GUAL",
+        "nit": "456677472-9",
+        "dane": "7432245000252",
+        "logo": "",
+        "image": "",
+        "created_at": "2021-12-19 14:17:30",
+        "updated_at": "2021-12-19 14:17:30"
+    }
+]

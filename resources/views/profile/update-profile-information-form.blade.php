@@ -10,12 +10,10 @@
     <x-slot name="form">
         <!-- Profile Photo -->
         @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
-            <div x-data="{photoName: null, photoPreview: null}" class="col-span-6 sm:col-span-4">
+            <div x-data="{ photoName: null, photoPreview: null }" class="col-span-6 sm:col-span-4">
                 <!-- Profile Photo File Input -->
-                <input type="file" id="photo" class="hidden"
-                            wire:model.live="photo"
-                            x-ref="photo"
-                            x-on:change="
+                <input type="file" id="photo" class="hidden" wire:model.live="photo" x-ref="photo"
+                    x-on:change="
                                     photoName = $refs.photo.files[0].name;
                                     const reader = new FileReader();
                                     reader.onload = (e) => {
@@ -28,13 +26,14 @@
 
                 <!-- Current Profile Photo -->
                 <div class="mt-2" x-show="! photoPreview">
-                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}" class="rounded-full h-20 w-20 object-cover">
+                    <img src="{{ $this->user->profile_photo_url }}" alt="{{ $this->user->name }}"
+                        class="object-cover w-20 h-20 rounded-full">
                 </div>
 
                 <!-- New Profile Photo Preview -->
                 <div class="mt-2" x-show="photoPreview" style="display: none;">
-                    <span class="block rounded-full w-20 h-20 bg-cover bg-no-repeat bg-center"
-                          x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
+                    <span class="block w-20 h-20 bg-center bg-no-repeat bg-cover rounded-full"
+                        x-bind:style="'background-image: url(\'' + photoPreview + '\');'">
                     </span>
                 </div>
 
@@ -52,30 +51,113 @@
             </div>
         @endif
 
-        <!-- Name -->
+        <!-- 1er Bloque  -->
         <div class="col-span-6 sm:col-span-4">
-            <x-label for="name" value="{{ __('Name') }}" />
-            <x-input id="name" type="text" class="mt-1 block w-full" wire:model="state.name" required autocomplete="name" />
-            <x-input-error for="name" class="mt-2" />
+            <!-- Name -->
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+                <div>
+                    <x-label for="name" value="{{ __('name') }}" />
+                    <x-input id="name" type="text" class="block w-full mt-1" wire:model="state.name" required
+                        autocomplete="name" />
+                    <x-input-error for="name" class="mt-2" />
+                </div>
+                <!-- Last Name -->
+                <div>
+                    <x-label for="last_name" value="{{ __('last_name') }}" />
+                    <x-input id="last_name" type="text" class="block w-full mt-1" wire:model.defer="state.last_name"
+                        autocomplete="last_name" />
+                    <x-input-error for="last_name" class="mt-2" />
+                </div>
+            </div>
+        </div>
+
+        <!-- 2do Bloque -->
+
+        <div class="col-span-6 sm:col-span-4">
+            <!-- Cedula -->
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+                <div>
+                    <x-label for="cedula" value="{{ __('cedula') }}" />
+                    <x-input id="cedula" type="text" class="block w-full mt-1" wire:model="state.cedula" required
+                        autocomplete="cedula" />
+                    <x-input-error for="cedula" class="mt-2" />
+                </div>
+                <!-- Birthdate -->
+                <div>
+                    <x-label for="birthdate" value="{{ __('birthdate') }}" />
+                    <x-input id="birthdate" type="date" class="block w-full mt-1" wire:model.defer="state.birthdate"
+                        autocomplete="birthdate" />
+                    <x-input-error for="birthdate" class="mt-2" />
+                </div>
+            </div>
+        </div>
+
+        <!-- 3er Bloque -->
+
+        <div class="col-span-6 sm:col-span-4">
+
+            <!-- Gender -->
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2">
+                <div>
+                    <x-label for="gender" value="{{ __('gender') }}" />
+                    <select name="gender" class="w-full rounded">
+                        <option value="masculino">masculino</option>
+                        <option value="femeninino">femeninino</option>
+                    </select>
+                    <x-input-error for="gender" class="mt-2" />
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <x-label for="phone" value="{{ __('phone') }}" />
+                    <x-input id="phone" type="text" class="block w-full mt-1" wire:model.defer="state.phone"
+                        autocomplete="phone" />
+
+                    <x-input-error for="phone" class="mt-2" />
+                </div>
+            </div>
+        </div>
+
+        <!-- Quinto Bloque  -->
+
+        <!-- Address -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="address" value="{{ __('address') }}" />
+            <x-input id="address" type="text" class="block w-full mt-1" wire:model="state.address" required
+                autocomplete="address" />
+            <x-input-error for="address" class="mt-2" />
+        </div>
+        <!-- Quinto Bloque  -->
+
+        <!-- Rol -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-label for="rol" value="{{ __('rol') }}" />
+            <x-input id="rol" type="text" class="block w-full mt-1" wire:model.defer="state.rol"
+                autocomplete="rol" />
+            <x-input-error for="rol" class="mt-2" />
         </div>
 
         <!-- Email -->
         <div class="col-span-6 sm:col-span-4">
             <x-label for="email" value="{{ __('Email') }}" />
-            <x-input id="email" type="email" class="mt-1 block w-full" wire:model="state.email" required autocomplete="username" />
+            <x-input id="email" type="email" class="block w-full mt-1" wire:model="state.email" required
+                autocomplete="username" />
             <x-input-error for="email" class="mt-2" />
 
-            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) && ! $this->user->hasVerifiedEmail())
-                <p class="text-sm mt-2">
+            @if (Laravel\Fortify\Features::enabled(Laravel\Fortify\Features::emailVerification()) &&
+                    !$this->user->hasVerifiedEmail())
+                <p class="mt-2 text-sm">
                     {{ __('Your email address is unverified.') }}
 
-                    <button type="button" class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" wire:click.prevent="sendEmailVerification">
+                    <button type="button"
+                        class="text-sm text-gray-600 underline rounded-md hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        wire:click.prevent="sendEmailVerification">
                         {{ __('Click here to re-send the verification email.') }}
                     </button>
                 </p>
 
                 @if ($this->verificationLinkSent)
-                    <p class="mt-2 font-medium text-sm text-green-600">
+                    <p class="mt-2 text-sm font-medium text-green-600">
                         {{ __('A new verification link has been sent to your email address.') }}
                     </p>
                 @endif
@@ -87,9 +169,10 @@
         <x-action-message class="me-3" on="saved">
             {{ __('Saved.') }}
         </x-action-message>
-
-        <x-button wire:loading.attr="disabled" wire:target="photo">
-            {{ __('Save') }}
-        </x-button>
+        @hasrole('super-admin|parent')
+            <x-button wire:loading.attr="disabled" wire:target="photo">
+                {{ __('Save') }}
+            </x-button>
+        @endhasrole
     </x-slot>
 </x-form-section>

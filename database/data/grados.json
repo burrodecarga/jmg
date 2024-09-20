@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "ordinal": "-2.º",
+        "name": "pre jardín",
+        "level": "pre-escolar",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 2,
+        "ordinal": "-1.º",
+        "name": "jardín",
+        "level": "pre-escolar",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 3,
+        "ordinal": "0.º",
+        "name": "transición",
+        "level": "pre-escolar",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 4,
+        "ordinal": "1.º",
+        "name": "primer grado",
+        "level": "básica primaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 5,
+        "ordinal": "2.º",
+        "name": "segundo grado",
+        "level": "básica primaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 6,
+        "ordinal": "3.º",
+        "name": "tercero grado",
+        "level": "básica primaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 7,
+        "ordinal": "4.º",
+        "name": "cuarto grado",
+        "level": "básica primaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 8,
+        "ordinal": "5.º",
+        "name": "quinto grado",
+        "level": "básica primaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 9,
+        "ordinal": "6.º",
+        "name": "sexto grado",
+        "level": "básica secundaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 10,
+        "ordinal": "7.º",
+        "name": "séptimo grado",
+        "level": "básica secundaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 11,
+        "ordinal": "8.º",
+        "name": "octavo grado",
+        "level": "básica secundaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 12,
+        "ordinal": "9.º",
+        "name": "noveno grado",
+        "level": "básica secundaria",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 13,
+        "ordinal": "10.º",
+        "name": "décimo grado",
+        "level": "media académica",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 14,
+        "ordinal": "11.º",
+        "name": "undécimo grado",
+        "level": "media académica",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 15,
+        "ordinal": "10.º",
+        "name": "décimo grado",
+        "level": "media técnica",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 16,
+        "ordinal": "11.º",
+        "name": "undécimo grado",
+        "level": "media técnica",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 17,
+        "ordinal": "22.º",
+        "name": "ciclo 22",
+        "level": "Adulto",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 18,
+        "ordinal": "23.º",
+        "name": "ciclo 23",
+        "level": "Adulto",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 19,
+        "ordinal": "24.º",
+        "name": "ciclo 24",
+        "level": "Adulto",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    },
+    {
+        "id": 20,
+        "ordinal": "25.º ",
+        "name": "ciclo 25",
+        "level": "Adulto",
+        "created_at": "2024-09-09T20:11:31.000000Z",
+        "updated_at": "2024-09-09T20:11:31.000000Z"
+    }
+]
