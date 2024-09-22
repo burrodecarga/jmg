@@ -7,4 +7,6 @@ use App\Http\Controllers;
 Route::resource('coordinators', CoordinatorController::class)->names('coordinators');
 Route::get('/add_sections/{sede}', [CoordinatorController::class, 'add_sections'])->name('add_sections');
 Route::get('/add_teachers/{sede}', [CoordinatorController::class, 'add_teachers'])->name('add_teachers');
+Route::get('/create_lectivo/{grado}', [CoordinatorController::class, 'create_lectivo'])->name('create_lectivo');
+
 

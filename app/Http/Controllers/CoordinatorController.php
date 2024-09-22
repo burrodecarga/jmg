@@ -30,6 +30,12 @@ class CoordinatorController extends Controller
         $periodos = Periodo::all();
         return view('coordinator.add_teachers',compact('sede','periodos','teachers'));
 
+    }
+
+    public function create_lectivo(Sede $sede){
+        $teachers = Teacher::orderBy('full_name')->get();
+        $periodos = Periodo::all();
+        return view('coordinator.create_lectivo',compact('sede','grados','periodos','teachers'));
 
     }
 }

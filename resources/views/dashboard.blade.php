@@ -6,6 +6,7 @@
                     {{ __('administration panel') }} :
                     <span class="ml-2 uppercase">
                         {{ auth()->user()->name }}
+                        {{-- {{ auth()->user()->getPermissionsViaRoles()->pluck('name') }} --}}
                     </span>
                 </h2>
                 <h2 class="text-sm font-semibold leading-tight text-gray-800">
