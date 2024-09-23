@@ -12,8 +12,11 @@ class CoordinatorController extends Controller
 {
     public function index() {
         $sede = auth()->user()->coordina()->first();
+         if(is_null($sede)){
+            $message = __('There is no assigned headquarters to coordinate');
+            return redirect()->route('dashboard')->with('fail', $message);
+        }
 
-        //dd($sede->grados);
         $grados = Grado::all();
         $periodos = Periodo::all();
         return view('coordinator.index',compact('sede','periodos','grados'));
@@ -33,9 +36,9 @@ class CoordinatorController extends Controller
     }
 
     public function create_lectivo(Sede $sede){
-        $teachers = Teacher::orderBy('full_name')->get();
-        $periodos = Periodo::all();
-        return view('coordinator.create_lectivo',compact('sede','grados','periodos','teachers'));
+        //$grados = $sede->grados;
+      //  $periodos = Periodo::orderBy('year')->get();
+        return view('coordinator.create_lectivo',compact('sede'));
 
     }
 }

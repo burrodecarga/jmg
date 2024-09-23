@@ -1,4 +1,4 @@
-<div class="w-1/2 mx-auto overflow-hidden overflow-x-auto border rounded-md border-neutral-500 dark:border-neutral-700">
+<div class="w-full mx-auto overflow-hidden overflow-x-auto border rounded-md border-neutral-500 dark:border-neutral-700">
     <div class="px-10 pt-4 pb-0 mb-0">
         <form id="uno"wire:submit='addTeacher' class="w-1/2 ml-auto">
             <div class="mb-1">

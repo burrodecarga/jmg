@@ -65,12 +65,10 @@
     </x-slot>
 
     <div class="py-6">
-        <div class="w-2/3 min-h-screen mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-xl min-h-svh sm:rounded-lg">
-                <div class="p-6 bg-white lg:p-8">
-                    <div class="w-full">
-                        @livewire('add-teacher-to-sede', compact('sede', 'teachers'))
-                    </div>
+        <div class="max-w-md min-h-screen mx-auto sm:px-6 lg:px-8">
+            <div class="h-64 overflow-hidden bg-white shadow-xl sm:rounded-lg">
+                <div class="w-full">
+                    @livewire('add-lectivo-to-sede', compact('sede'))
                 </div>
             </div>
         </div>

@@ -8,6 +8,8 @@ define('NUMERO_DE_SECCION',array(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
 define('DIA', array('domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'));
 define('MES', array('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre'));
 define('RECURSOS', array('recurso académico', 'recurso físico', 'recurso tecnológico', 'insumo industrial', 'recurso deportivo', 'recurso bibliográfico', 'recurso de laboratorio'));
+
+
 function price($value)
 {
     return number_format($value, 2) . ' $';

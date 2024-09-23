@@ -80,6 +80,7 @@
                     <nav class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
                         @include('coordinator.partials.route_add_sectios')
                         @include('coordinator.partials.route_add_teachers')
+                        @include('coordinator.partials.route_create_lectivos')
 
 
 

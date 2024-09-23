@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Carbon\Carbon;
 
 class Periodo extends Model
 {
@@ -27,6 +28,12 @@ class Periodo extends Model
     public static function lectivo()
 {
     return Periodo::where('current',1)->get();
+}
+
+public function getLapsoAttribute()
+{
+
+    return 'desde '.Carbon::parse($this->start)->format('d/m/Y').' hasta '.Carbon::parse($this->end)->format('d/m/Y');
 }
 
 }
