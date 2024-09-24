@@ -36,7 +36,8 @@ class CoordinatorController extends Controller
     }
 
     public function create_lectivo(Sede $sede){
-        //$grados = $sede->grados;
+        $grados = $sede->grados;
+        //dd($sede);
       //  $periodos = Periodo::orderBy('year')->get();
         return view('coordinator.create_lectivo',compact('sede'));
 

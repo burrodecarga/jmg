@@ -13,12 +13,13 @@
                 </select>
                 <x-input-error for="periodo_id" />
             </div>
-            <a href="{{ route('coordinators.index') }}">
-                <button type="submit"
-                    class="items-center justify-center w-full px-6 py-4 mx-auto my-6 text-white bg-green-700 rounded">Crear
-                    Período
-                    lectivo</button></a>
+
+            <x-button type="submit"
+                class="items-center justify-center w-full px-6 py-4 mx-auto my-6 text-white bg-green-700 rounded">Crear
+                Período
+                lectivo</x-button>
         </div>
+        <span wire:loading>processing...</span>
         <p>{{ $periodo_id }}</p>
     </div>
 </form>

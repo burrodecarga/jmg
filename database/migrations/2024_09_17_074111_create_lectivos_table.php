@@ -19,13 +19,14 @@ return new class extends Migration
             $table->date('end')->default(Carbon::now());
             $table->integer('year')->default(Carbon::now()->year);
             ///Grado register
+            $table->unsignedBigInteger('periodo_id');
             $table->unsignedBigInteger('school_id');
             $table->unsignedBigInteger('sede_id');
             $table->unsignedBigInteger('grado_id');
             $table->string('ordinal');
             $table->string('grado_name');
             $table->string('level');
-            $table->integer('numero')->default(1);
+           $table->integer('numero')->default(1);
             $table->string('letra')->default('A');
 
 
