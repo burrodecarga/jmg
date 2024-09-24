@@ -31,4 +31,8 @@ class Lectivo extends Model
         'end'
         // your other new column
     ];
+
+    public function cursos(){
+        return $this->hasMany(Course::class,'course_id');
+    }
 }

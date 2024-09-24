@@ -44,7 +44,7 @@
                                         title="{{ __('assign manager to the school headquarters') . ' ' . $sede->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-user-tie"></i></a>
                                     <a href="{{ route('schools.sedes.grados_create', [$sede->id]) }}"
-                                        title="{{ __('add course to be taught at headquarters') . ' ' . $sede->name }}"><i
+                                        title="{{ __('add grados to be taught at headquarters') . ' ' . $sede->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-book"></i></a>
                                 </td>
 

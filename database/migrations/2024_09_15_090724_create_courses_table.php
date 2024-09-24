@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('grado');
             $table->string('name');
             $table->string('subtitle')->nullable();
-            $table->text('description')->nullable();
-            $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
+              $table->text('description')->nullable();
+              $table->enum('status', [Course::BORRADOR, Course::REVISION, Course::PUBLICADO])->default(Course::BORRADOR);
             $table->string('slug');
             $table->timestamps();
 

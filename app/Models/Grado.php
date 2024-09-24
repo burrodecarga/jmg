@@ -30,4 +30,11 @@ class Grado extends Model
     {
         return $this->belongsToMany(Sede::class)->withPivot('numero','letra')->orderby('grado_id');
     }
+
+    public function courses()
+    {
+        return $this->hasMany(Course::class);
+    }
+
+
 }

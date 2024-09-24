@@ -12,4 +12,17 @@ class Course extends Model
     const BORRADOR  = 1;
     const REVISION  = 2;
     const PUBLICADO = 3;
+
+
+    protected $guarded = ['id', 'status'];
+
+    public function grado(){
+        return $this->belongsTo(Grado::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
 }

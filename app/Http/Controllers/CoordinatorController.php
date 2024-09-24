@@ -42,4 +42,9 @@ class CoordinatorController extends Controller
         return view('coordinator.create_lectivo',compact('sede'));
 
     }
+
+    public function add_teachers_to_lectivo(Sede $sede){
+        return view('coordinator.add_teachers_to_lectivo',compact('sede'));
+
+    }
 }

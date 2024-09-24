@@ -82,6 +82,7 @@
                         @include('coordinator.partials.route_add_teachers')
                         @include('coordinator.partials.route_create_lectivos')
 
+                        @include('coordinator.partials.route_add_teachers_to_lectivo')
 
 
                         <div role="button" tabindex="0"
