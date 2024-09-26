@@ -20,9 +20,9 @@ class Course extends Model
         return $this->belongsTo(Grado::class);
     }
 
-    public function teacher()
+    public function lectivos()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsToMany(Lectivo::class)->withPivot('teacher','user_id')->orderby('teacher');;
     }
 
 }

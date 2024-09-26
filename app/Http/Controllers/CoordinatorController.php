@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Sede;
 use App\Models\Periodo;
+use App\Models\Lectivo;
 use App\Models\Grado;
+use App\Models\Course;
 
 class CoordinatorController extends Controller
 {
@@ -44,7 +46,21 @@ class CoordinatorController extends Controller
     }
 
     public function add_teachers_to_lectivo(Sede $sede){
-        return view('coordinator.add_teachers_to_lectivo',compact('sede'));
+        $lectivos = Lectivo::where('sede_id',$sede->id)->get();
+        return view('coordinator.add_teachers_to_lectivo',compact('sede','lectivos'));
 
     }
+
+    public function add_teacher_to_course(Lectivo $lectivo){
+        $sede = Sede::find($lectivo->sede_id);
+        $teachers = $sede->teachers;
+        return view('coordinator.add_teacher_to_course',compact('lectivo','teachers'));
+    }
+
+    // public function list_of_course($id){
+    //     $lectivos = Lectivo::where('sede_id',$id)->get();
+    //     $sede = Sede::find($id);
+    //     $teachers = $sede->teachers;
+    //     return view('coordinator.list_of_course', compact('lectivos','teachers','sede'));
+    // }
 }

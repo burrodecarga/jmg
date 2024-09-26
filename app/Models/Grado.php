@@ -33,8 +33,9 @@ class Grado extends Model
 
     public function courses()
     {
-        return $this->hasMany(Course::class);
+        return $this->belongsToMany(Grado::class)->withPivot('teacher','user_id')->orderby('teacher');;
     }
+
 
 
 }

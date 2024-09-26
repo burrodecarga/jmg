@@ -125,7 +125,6 @@ class User extends Authenticatable
 
 
 
-
     public function representados()
     {
         return $this->hasMany(User::class, 'parent_id');
@@ -140,4 +139,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Sede::class);
     }
+
+    public function estudia_en()
+    {
+        return $this->belongsTo(Sede::class, 'sede_id');
+    }
+
+
 }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('phone')->nullable()->after('name')->default('000-000.000');
             $table->string('gender')->nullable()->after('name')->default('masculino');;
             $table->date('birthdate')->nullable()->after('name')->default(Carbon::now());
-            $table->string('rol')->nullable()->after('name')->default('no registrado');
+            $table->string('rol')->nullable()->after('name')->default('no role');
             $table->unsignedBigInteger('confirmed')->nullable()->after('name')->default(0);
             $table->unsignedBigInteger('active')->nullable()->after('name')->default(0);
             $table->unsignedBigInteger('parent_id')->nullable()->after('name');

@@ -17,6 +17,10 @@ class Lectivo extends Model
         'school_id',
         'sede_id',
         'grado_id',
+        'course_id',
+        'course_name',
+        'teacher_id',
+        'teacher_name',
         'ordinal',
         'grado_name',
         'level',
@@ -31,6 +35,11 @@ class Lectivo extends Model
         'end'
         // your other new column
     ];
+
+    public function getFullNameAttribute()
+    {
+        return "{$this['name']} {$this['level']}";
+    }
 
     public function cursos(){
         return $this->hasMany(Course::class,'course_id');

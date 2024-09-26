@@ -66,62 +66,17 @@
                 </h2>
             </div>
         </div>
+
     </x-slot>
 
-    <div class="w-10/12 mx-auto mt-10">
-        <div class="w-full mx-auto text-center card">
-            <div class="text-white card-header bg-primary">
-                <div class="flex items-center justify-between card-title">
-                    <h4>
-                        {{ __('list of sections') }}
-                    </h4>
-
-                    {{-- <a href="{{ route('list_of_course', $sede->id) }}" class="text-white cursor-pointer"
-                        title="{{ __('add teachers') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </a> --}}
+    <div class="py-6">
+        <div class="w-2/3 min-h-screen mx-auto sm:px-6 lg:px-8">
+            <div class="overflow-hidden bg-white shadow-xl h-62 sm:rounded-lg">
+                <div class="p-6 bg-blue-100 lg:p-8">
+                    <div class="w-full">
+                        @livewire('add_teacher_to_course', compact('lectivo', 'teachers'))
+                    </div>
                 </div>
-            </div>
-            <div class="card-body">
-                <table id="grado" class="table text-sm table-hover" style="width:100%">
-                    <thead>
-                        <tr>
-                            <th>{{ __('num') }}</th>
-                            <th>{{ __('ordinal') }}</th>
-                            <th>{{ __('grado') }}/{{ __('level') }}</th>
-                            <th>{{ __('num') }}/{{ __('leter') }}</th>
-                            <th>{{ __('course') }}</th>
-                            <th>{{ __('teacher') }}</th>
-                            <th>{{ __('action') }}</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-sm">
-                        @foreach ($lectivos as $lectivo)
-                            <tr class="odd:bg-slate-100">
-                                <td width="5%" class="text-center">{{ $lectivo->id }}</td>
-                                <td width="5%" class="text-center">{{ $lectivo->ordinal }}</td>
-                                <td width="20%" class="text-left">
-                                    {{ $lectivo->grado_name }}<br>{{ $lectivo->level }}
-                                </td>
-                                <td width="10%" class="text-sm text-center">
-                                    {{ $lectivo->numero }}<br>{{ $lectivo->letra }}</td>
-                                <td width="20%" class="text-sm text-left">{{ $lectivo->course_name }}</td>
-                                <td width="30%" class="text-sm text-left">{{ $lectivo->teacher_name }}</td>
-                                <td class="flex gap-4 mx-auto text-center" width="10%">
-                                    <a href="{{ route('add_teacher_to_course', $lectivo->id) }}"
-                                        title="{{ __('add teacher to courese') . ' ' . $lectivo->course_name }}">
-                                        <i class="text-blue-500 icono fa-solid fa-person-chalkboard"></i>
-                                    </a>
-                                </td>
-
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
@@ -161,7 +116,7 @@
                         "infoFiltered": ""
                     },
                     "columnDefs": [{
-                        "targets": [5],
+                        "targets": [3],
                         "orderable": false
                     }]
                 });

@@ -176,6 +176,7 @@
     "resource updated successfully": "recurso modificado correctamente",
     "resource deleted successfully": "recurso eliminado correctamente",
     "add grados to be taught at headquarters": "agregar grados a disponible en sede",
+    "assign subject to teacher": "asignar materia a profesor",
     "rooms": "espacios",
     "create": "agregar",
     "verify": "verificaciones",

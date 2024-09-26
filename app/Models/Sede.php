@@ -67,5 +67,9 @@ class Sede extends Model
         return $this->belongsToMany(Teacher::class);
     }
 
+    public function students(){
+        return $this->hasMany(User::class,'user_id');
+    }
+
 
 }
