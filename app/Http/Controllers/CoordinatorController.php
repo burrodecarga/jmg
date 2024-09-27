@@ -57,10 +57,10 @@ class CoordinatorController extends Controller
         return view('coordinator.add_teacher_to_course',compact('lectivo','teachers'));
     }
 
-    // public function list_of_course($id){
-    //     $lectivos = Lectivo::where('sede_id',$id)->get();
-    //     $sede = Sede::find($id);
-    //     $teachers = $sede->teachers;
-    //     return view('coordinator.list_of_course', compact('lectivos','teachers','sede'));
-    // }
+    public function courses_by_grado(){
+        $courses = Course::all();
+        dd($courses);
+        return view('coordinator.courses_by_grado',compact('courses'));
+
+    }
 }

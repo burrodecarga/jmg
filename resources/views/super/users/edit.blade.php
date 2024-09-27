@@ -1,7 +1,7 @@
 <x-admin-layout>
     <div class="max-w-5xl mx-auto bg-white rounded shadow-lg">
-        <div class="w-full mx-auto p-6 my-10">
-            <h1 class="font-bold text-2xl capitalize"><strong>{{ $title }}</strong></h1>
+        <div class="w-full p-6 mx-auto my-10">
+            <h1 class="text-2xl font-bold capitalize"><strong>{{ $title }}</strong></h1>
             <hr>
             <form action="{{ route('users.update', $user->id) }}" method="POST">
                 @method('PUT')

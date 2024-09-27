@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('padres', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('student_id');
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->unsignedBigInteger('student_id')->nullable();
         });
     }
 

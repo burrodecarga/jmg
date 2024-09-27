@@ -61,9 +61,7 @@
                                                 title="{{ __('delete grado') . ' : ' . $grado->name }}"
                                                 class="text-red-500 icono fa-solid fa-trash-can"></i></button>
                                     </form>
-                                    <a href="{{ route('grados.show', $grado->id) }}"
-                                        title="{{ __('add activiti to grado') . ' ' . $grado->name }}"><i
-                                            class="text-blue-500 icono fa-solid fa-code-fork"></i></a>
+
                                 </td>
 
                             </tr>
@@ -109,7 +107,7 @@
                         "infoFiltered": ""
                     },
                     "columnDefs": [{
-                        "targets": [],
+                        "targets": [6],
                         "orderable": false
                     }]
                 });

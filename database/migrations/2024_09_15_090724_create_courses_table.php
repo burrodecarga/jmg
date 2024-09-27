@@ -17,7 +17,9 @@ return new class extends Migration
             $table->id();
             $table->integer('active')->default(1);
             $table->unsignedBigInteger('grado_id')->nullable();
-            $table->string('grado');
+            $table->string('ordinal')->nullable();
+            $table->string('level')->nullable();
+            $table->string('grado')->nullable();
             $table->string('name');
             $table->string('subtitle')->nullable();
               $table->text('description')->nullable();

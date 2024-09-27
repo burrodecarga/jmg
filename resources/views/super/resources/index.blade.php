@@ -28,29 +28,20 @@
                     <thead>
                         <tr>
                             <th>{{ __('num') }}</th>
-                            {{-- <th>{{ __('school') }}</th>
-                            <th>{{ __('sede') }}</th> --}}
-                            <th>{{ __('resource') }}</th>
-                            <th>{{ __('width') }}</th>
-                            <th>{{ __('long') }}</th>
-                            <th>{{ __('high') }}</th>
-                            <th>{{ __('capacity') }}</th>
+                            <th>{{ __('category') }}</th>
+                            <th>{{ __('name') }}</th>
+                            <th>{{ __('description') }}</th>
                             <th>{{ __('action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($resources as $resource)
                             <tr class="odd:bg-slate-100">
-                                <td width="5%" class="text-left">{{ $resource->id }}</td>
-                                {{-- <td width="20%" class="text-left">{{ $resource->sede->school->name }}</td>
-                                <td width="20%" class="text-left">{{ $resource->sede->name }}</td> --}}
-                                <td width="20%" class="text-left">{{ $resource->name }}</td>
-                                <td width="10%" class="text-left">{{ $resource->width }}</td>
-                                <td width="10%" class="text-left">{{ $resource->long }}</td>
-                                <td width="10%" class="text-left">{{ $resource->high }}</td>
-                                <td width="10%" class="text-left">{{ $resource->capacity }} <span
-                                        class="text-sm">{{ __('people') }}</span></td>
-                                <td class="flex gap-4 text-center" width="10%">
+                                <td width="" class="text-left">{{ $resource->id }}</td>
+                                <td width="" class="text-left">{{ $resource->category }}</td>
+                                <td width="" class="text-left">{{ $resource->name }}</td>
+                                <td width="" class="text-left">{{ $resource->description }}</td>
+                                <td class="flex gap-4 text-center" width="">
                                     <a href="{{ route('resources.edit', $resource->id) }}"
                                         title="{{ __('edit resource') . ' ' . $resource->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-pen-to-square"></i></a>

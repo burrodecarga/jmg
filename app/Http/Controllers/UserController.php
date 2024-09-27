@@ -26,8 +26,9 @@ class UserController extends Controller
 
             abort(403);
         }
-        $userRoleId = $user->id;
-        $roles = Role::where('id', '>', EDIT_ROLE_ORIGINAL)->get();
+        $userRoleId = $user->roles->pluck("id")->first();
+        //dd($userRoleId);
+        $roles = Role::where('id', '>=', EDIT_ROLE_ORIGINAL)->get();
         $title = "user edit";
         $btn = "edit";
         return view('super.users.edit', compact('user', 'title', 'btn', 'roles', 'userRoleId'));
@@ -101,6 +102,10 @@ class UserController extends Controller
         $user->update(['avatar' => $filename]);
         $user->save();
         return redirect()->route('home')->with('success', 'user ' . $user->name . ' actualizado exitosamente');
+    }
+
+    public function create(){
+        return view('super.users.create');
     }
 
 }
