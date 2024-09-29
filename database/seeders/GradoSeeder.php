@@ -22,6 +22,7 @@ class GradoSeeder extends Seeder
             $grado->ordinal = mb_strtolower($obj->ordinal);
             $grado->level = mb_strtolower($obj->level);
             $grado->save();
+            
         }
     }
 }

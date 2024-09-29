@@ -6,9 +6,11 @@ use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Sede;
 use App\Models\Periodo;
+use App\Models\Level;
 use App\Models\Lectivo;
 use App\Models\Grado;
 use App\Models\Course;
+use App\Models\Category;
 
 class CoordinatorController extends Controller
 {
@@ -59,8 +61,15 @@ class CoordinatorController extends Controller
 
     public function courses_by_grado(){
         $courses = Course::all();
-        dd($courses);
+
         return view('coordinator.courses_by_grado',compact('courses'));
+
+    }
+
+    public function config_course(Course $course){
+        $levels = Level::all();
+        $categories= Category::all();
+        return view('coordinator.config_course',compact('course','levels','categories'));
 
     }
 }

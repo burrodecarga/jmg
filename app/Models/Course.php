@@ -25,4 +25,12 @@ class Course extends Model
         return $this->belongsToMany(Lectivo::class)->withPivot('teacher','user_id')->orderby('teacher');;
     }
 
+    public function requeriments(){
+        return $this->hasMany(Requeriment::class);
+    }
+
+    public function goals(){
+        return $this->hasMany(Goal::class);
+    }
+
 }

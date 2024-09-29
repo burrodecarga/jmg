@@ -20,11 +20,16 @@ class CourseSeeder extends Seeder
         $json = File::get('database/data/materias.json');
         $data = json_decode($json);
         foreach ($data as $obj) {
+            $grado = Grado::find($obj->id);
+
+
             $curso = new Course();
             $curso->grado = mb_strtolower($obj->grado);
             $curso->name = mb_strtolower($obj->name);
             $curso->slug = Str::slug($obj->name);
             $curso->grado_id = mb_strtolower($obj->id);
+            $curso->ordinal = $grado->ordinal;
+            $curso->level = $grado->level;
             $curso->save();
         }
 

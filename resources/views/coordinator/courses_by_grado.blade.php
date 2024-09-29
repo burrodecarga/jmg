@@ -84,9 +84,9 @@
                     <thead>
                         <tr>
                             <th>{{ __('num') }}</th>
-                            <th>{{ __('ordinal') }}</th>
                             <th>{{ __('name') }}</th>
-                            <th>{{ __('level') }}/{{ __('leter') }}</th>
+                            <th>{{ __('ordinal') }}/{{ __('grado') }}</th>
+                            <th>{{ __('nivel') }}</th>
                             <th>{{ __('courses') }}</th>
                             <th>{{ __('action') }}</th>
                         </tr>
@@ -94,15 +94,15 @@
                     <tbody class="text-sm">
                         @foreach ($courses as $course)
                             <tr class="odd:bg-slate-100">
-                                <td width="" class="text-center">{{ $course->id }}</td>
-                                <td width="" class="text-center">{{ $course->ordinal }}</td>
-                                <td width="" class="text-left">{{ $course->name }} </td>
-                                <td width="" class="text-sm text-center">
-                                    {{ $course->level }}</td>
-                                <td width="" class="text-sm text-left">{{ $course->course_name }}</td>
+                                <td width="10%" class="text-center">{{ $course->id }}</td>
+                                <td width="20%" class="text-left">{{ $course->name }}</td>
+                                <td width="20%" class="text-left">{{ $course->ordinal }}<br>
+                                    {{ $course->grado }}</td>
+                                <td width="15%" class="text-sm text-left">{{ $course->level }}</td>
+                                <td width="25%" class="text-sm text-left">{{ 'xx' }}</td>
                                 <td class="flex gap-4 mx-auto text-center" width="10%">
-                                    <a href="{{ route('add_teacher_to_course', $course->id) }}"
-                                        title="{{ __('add teacher to courese') . ' ' . $course->course_name }}">
+                                    <a href="{{ route('config_course', $course->id) }}"
+                                        title="{{ __('configure course') . ' ' . $course->grado . '  ' . $course->name }}">
                                         <i class="text-blue-500 icono fa-solid fa-person-chalkboard"></i>
                                     </a>
                                 </td>
