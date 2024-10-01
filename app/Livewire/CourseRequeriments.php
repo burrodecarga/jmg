@@ -28,7 +28,6 @@ class CourseRequeriments extends Component
     }
 
     public function addRequeriment(){
-
         $this->validate();
         $courseId = $this->course->id;
         //dd($courseId);
@@ -38,8 +37,7 @@ class CourseRequeriments extends Component
         $requeriment->save();
         $this->reset();
         $message = __('The course info updated');
-        return redirect()->route('config_course',$courseId)->with('success', $message);
-
-
+        toastr()->success('Data has been saved successfully!');
+        return redirect()->route('config_course',$courseId);
     }
 }

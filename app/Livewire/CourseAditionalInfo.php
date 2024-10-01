@@ -15,9 +15,11 @@ class CourseAditionalInfo extends Component
     public $category_id;
     public $subtitle;
     public $description;
+    public $name;
 
     public function mount(Course $course, $levels, $categories){
         $this->course = $course;
+        $this->name = $course->name;
         $this->levels = $levels;
         $this->categories = $categories;
         $this->subtitle = $course->subtitle;
@@ -46,8 +48,7 @@ class CourseAditionalInfo extends Component
         $this->course->category_id = $this->category_id;
         $this->course->save();
         $courseId = $this->course->id;
-        $this->reset();
-
+        //$this->reset();
         $message = __('The course info updated');
         return redirect()->route('config_course',$courseId)->with('success', $message);
 

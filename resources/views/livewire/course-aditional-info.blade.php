@@ -1,11 +1,15 @@
 <div class="w-full col-span-1 p-2 border rounded bg-slate-200 border-1">
-    <h1 class="p-2 text-xl text-center text-white bg-blue-500 rounded-lg">
-        {{ __('aditional info') }}
-    </h1>
     <form wire:submit="modify">
         @csrf
         <div class="">
             <div class="col-span-1">
+                <div class="mb-4">
+                    <x-label class="my-2 italic text-left capitalize" value="{{ __('name of course') }}"
+                        for="course.name" />
+                    <x-input type="text" name="name" class="w-full" placeholder="{{ __('input name of course') }}"
+                        wire:model="name" readonly />
+                    <x-input-error for="name" />
+                </div>
                 <div class="mb-4">
                     <x-label class="my-2 italic text-left capitalize" value="{{ __('subtitle of course') }}"
                         for="course.subtitle" />

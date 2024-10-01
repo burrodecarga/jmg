@@ -10,6 +10,7 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    {{-- <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.1/dist/cdn.min.js"></script> --}}
 
     <!-- Styles -->
     {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}

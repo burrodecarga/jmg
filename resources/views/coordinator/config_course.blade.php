@@ -68,30 +68,90 @@
         </div>
     </x-slot>
 
-    <div class="w-full p-6 mx-auto mt-10">
+    <div class="w-1/2 p-6 mx-auto mt-10">
         <div class="w-full mx-auto text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
                     <h4>
-                        {{ __('config course') . ' ' . $course->course . ' ' . $course->name }}
+                        {{ __('aditional info') . ' ' . $course->grado . ' ' . $course->name }}
                     </h4>
                 </div>
             </div>
             <div class="card-body">
                 <div class="">
                     <div class="p-2 border rounded border-1">
-                        <div class="grid grid-cols-3 gap-1">
+                        <div class="grid grid-cols-1 gap-1">
                             <div>
 
                                 @livewire('course-aditional-info', compact('course', 'levels', 'categories'));
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full mx-auto mt-10 text-center card">
+            <div class="text-white card-header bg-primary">
+                <div class="flex items-center justify-between card-title">
+                    <h4>
+                        {{ __('requeriments of') . ' ' . $course->grado . ' ' . $course->name }}
+                    </h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="">
+                    <div class="p-2 border rounded border-1">
+                        <div class="grid grid-cols-1 gap-1">
                             <div>
 
                                 @livewire('course-requeriments', compact('course'));
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-3/4 p-6 mx-auto mt-10">
+        <div class="w-full mx-auto mt-10 text-center card">
+            <div class="text-white card-header bg-primary">
+                <div class="flex items-center justify-between card-title">
+                    <h4>
+                        {{ __('goals of') . ' ' . $course->grado . ' ' . $course->name }}
+                    </h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="">
+                    <div class="p-2 border rounded border-1">
+                        <div class="grid grid-cols-1 gap-1">
                             <div>
 
                                 @livewire('course-goals', compact('course'));
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-3/4 p-6 mx-auto">
+        <div class="w-full mx-auto mt-10 text-center card">
+            <div class="text-white card-header bg-primary">
+                <div class="flex items-center justify-between card-title">
+                    <h4>
+                        {{ __('sections') . ' ' . $course->course . ' ' . $course->name }}
+                    </h4>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="">
+                    <div class="p-2 border rounded border-1">
+                        <div class="grid grid-cols-1 gap-1">
+                            <div>
+
+                                @livewire('course-setions', compact('course'));
                             </div>
                         </div>
                     </div>
