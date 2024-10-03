@@ -4,16 +4,15 @@
         <div class="">
             <div class="col-span-1">
                 <div class="mb-4">
-                    <x-label class="my-2 italic text-left capitalize" value="{{ __('name of course') }}"
-                        for="course.name" />
-                    <x-input type="text" name="name" class="w-full" placeholder="{{ __('input name of course') }}"
-                        wire:model="name" readonly />
+                    <x-label class="my-2 italic text-left capitalize" value="{{ __('name of course') }}" for="name" />
+                    <x-input id="name" type="text" name="name" class="w-full"
+                        placeholder="{{ __('input name of course') }}" wire:model="name" readonly autocomplete="off" />
                     <x-input-error for="name" />
                 </div>
                 <div class="mb-4">
                     <x-label class="my-2 italic text-left capitalize" value="{{ __('subtitle of course') }}"
-                        for="course.subtitle" />
-                    <x-input type="text" name="subtitle" class="w-full"
+                        for="subtitle" />
+                    <x-input id="subtitle" type="text" name="subtitle" class="w-full"
                         placeholder="{{ __('input subtitle of course') }}" wire:model="subtitle" />
                     <x-input-error for="subtitle" />
                 </div>
@@ -21,7 +20,7 @@
                 <div class="mb-4">
                     <x-label class="my-2 italic text-left capitalize" value="{{ __('description of course') }}"
                         for="description" />
-                    <textarea name="description" class="w-full" placeholder="{{ __('input description of course') }}"
+                    <textarea id="description" name="description" class="w-full" placeholder="{{ __('input description of course') }}"
                         wire:model="description"></textarea>
                     <x-input-error for="description" />
                 </div>
@@ -29,7 +28,7 @@
                     <div class="mb-4 grow">
                         <x-label class="my-2 italic text-left capitalize" value="{{ __('level of course') }}"
                             for="level" />
-                        <select name="confirmed" id="confirmed" class="w-full bg-gray-100 rounded">
+                        <select id="level" name="level" id="level" class="w-full bg-gray-100 rounded">
                             <option value="" wire:model="level_id">
                                 {{ __('no level') }}</option>
                             @foreach ($levels as $level)
@@ -42,8 +41,8 @@
                     <div class="mb-4 grow">
                         <x-label class="my-2 italic text-left capitalize" value="{{ __('category of course') }}"
                             for="category_id" />
-                        <select name="confirmed" id="confirmed" class="w-full bg-gray-100 rounded"
-                            wire:model="category">
+                        <select name="category_id" id="category_id" class="w-full bg-gray-100 rounded"
+                            wire:model="category_id">
                             <option value="">
                                 {{ __('no category') }}</option>
                             @foreach ($categories as $category)
@@ -51,7 +50,7 @@
                                     {{ $category->name }}</option>
                             @endforeach
                         </select>
-                        <x-input-error for="category" />
+                        <x-input-error for="category_id" />
                     </div>
                 </div>
 

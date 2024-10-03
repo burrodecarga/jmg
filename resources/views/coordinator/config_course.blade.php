@@ -115,7 +115,7 @@
             </div>
         </div>
     </div>
-    <div id="goals" class="w-10/12 p-6 mx-auto mt-10">
+    <div id="goals" class="w-3/4 p-6 mx-auto mt-10">
         <div class="w-full mx-auto mt-10 text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">

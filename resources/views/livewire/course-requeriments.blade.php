@@ -13,8 +13,8 @@
                         <div class="col-span-1">
                             <div class="mb-4">
                                 <x-label class="my-2 italic text-left capitalize"
-                                    value="{{ __('requeriment of course') }}" for="course.requeriment" />
-                                <x-input type="text" name="requeriment" class="w-full"
+                                    value="{{ __('requeriment of course') }}" for="requeriment" />
+                                <x-input id="requeriment" type="text" name="requeriment" class="w-full"
                                     placeholder="{{ __('input requeriment of course') }}" wire:model="requeriment" />
                                 <x-input-error for="requeriment" class="text-left" />
                             </div>

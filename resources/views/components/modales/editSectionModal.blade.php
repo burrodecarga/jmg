@@ -9,9 +9,9 @@
                 <div class="col-span-1">
                     <div class="mb-4">
                         <x-label class="my-2 italic text-left capitalize" value="{{ __('section of course') }}"
-                            for="course.section" />
-                        <x-input type="text" class="w-full" placeholder="{{ __('input section of course') }}"
-                            wire:model="section" />
+                            for="section" />
+                        <x-input id="section" type="text" class="w-full"
+                            placeholder="{{ __('input section of course') }}" wire:model="section" />
                         <x-input-error for="section" class="text-left" />
                     </div>
                 </div>
