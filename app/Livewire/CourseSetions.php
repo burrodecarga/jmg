@@ -8,8 +8,11 @@ use App\Models\Course;
 
 class CourseSetions extends Component
 {
+    public $open=false;
+    public $openConfirm=false;
     public $course;
     public $section;
+    public $sectionId;
     public $sections=[];
 
 
@@ -39,5 +42,41 @@ class CourseSetions extends Component
         $this->reset();
         $message = __('The course info updated');
         return redirect()->route('config_course',$courseId)->with('success', $message);
+    }
+
+    public function edit(Section $section){
+        $this->section = $section->name;
+        $this->sectionId = $section->id;
+        $this->open = true;
+    }
+
+    public function update(){
+        $this->validate();
+        $sectionUpdate = Section::find($this->sectionId);
+        $sectionUpdate->name = $this->section;
+        $sectionUpdate->save();
+        $this->open = false;
+        $message = __('the action was completed successfully.');
+        $this->sections = $this->course->sections;
+        flash()->options([
+            'timeout' => 1000,
+        ])->success($message);
+    }
+
+    public function confirm (Section $section){
+        $this->section = $section->name;
+        $this->sectionId = $section->id;
+        $this->openConfirm = true;
+    }
+
+    public function delete(){
+        Section::destroy($this->sectionId);
+        $this->openConfirm = false;
+        $this->sections = $this->course->sections;
+        $message = __('the action was completed successfully.');
+        flash()->options([
+            'timeout' => 1000,
+        ])->success($message);
+
     }
 }

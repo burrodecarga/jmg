@@ -30,7 +30,6 @@ class CourseGoals extends Component
     }
 
     public function addGoal(){
-
         $this->validate();
         $courseId = $this->course->id;
 
