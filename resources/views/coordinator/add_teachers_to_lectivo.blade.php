@@ -124,6 +124,7 @@
                 </table>
             </div>
         </div>
+        <form id="frm" class="hidden form-delete"></form>
     </div>
     @push('scripts')
         <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.js') }}"></script>
@@ -143,7 +144,7 @@
                             "last": "Último",
                             "first": "Primero",
                         },
-                        "lengthMenu": "Mostrar  <select class='custom-select custom-select-sm'>" +
+                        "lengthMenu": "Mostrar  <select id='dt-length-0' class='text-xs rounded custom-select custom-select-sm'>" +
                             "<option value='5'>5</option>" +
                             "<option value='10'>10</option>" +
                             "<option value='15'>15</option>" +

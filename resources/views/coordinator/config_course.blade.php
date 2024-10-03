@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout class="scroll-smooth focus:scroll-auto">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}" />
@@ -68,7 +68,10 @@
         </div>
     </x-slot>
 
-    <div class="w-3/4 p-6 mx-auto mt-10">
+    <div class="">
+        @include('coordinator.partials.stiky')
+    </div>
+    <div id="info" class="w-3/4 p-6 mx-auto mt-10">
         <div class="w-full mx-auto text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
@@ -90,7 +93,7 @@
                 </div>
             </div>
         </div>
-        <div class="w-full mx-auto mt-10 text-center card">
+        <div id="requeriments" class="w-full mx-auto mt-10 text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
                     <h4>
@@ -112,7 +115,7 @@
             </div>
         </div>
     </div>
-    <div class="w-10/12 p-6 mx-auto mt-10">
+    <div id="goals" class="w-10/12 p-6 mx-auto mt-10">
         <div class="w-full mx-auto mt-10 text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
@@ -145,7 +148,7 @@
                     </h4>
                 </div>
             </div>
-            <div class="card-body">
+            <div id="sections" class="card-body">
                 <div class="">
                     <div class="p-2 border rounded border-1">
                         <div class="grid grid-cols-1 gap-1">
