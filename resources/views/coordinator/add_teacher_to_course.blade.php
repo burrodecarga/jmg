@@ -126,6 +126,7 @@
                 e.preventDefault();
 
                 Swal.fire({
+                    toast: true,
                     title: 'Está seguro de querer eliminar escuela?',
                     text: "Esta operación es irreversible",
                     icon: 'warning',
