@@ -84,10 +84,10 @@
                     <thead>
                         <tr>
                             <th>{{ __('num') }}</th>
-                            <th>{{ __('name') }}</th>
+                            <th>{{ __('course') }}</th>
                             <th>{{ __('ordinal') }}/{{ __('grado') }}</th>
                             <th>{{ __('nivel') }}</th>
-                            <th>{{ __('courses') }}</th>
+                            <th>{{ __('sections') }}</th>
                             <th>{{ __('action') }}</th>
                         </tr>
                     </thead>
@@ -99,11 +99,11 @@
                                 <td width="20%" class="text-left">{{ $course->ordinal }}<br>
                                     {{ $course->grado }}</td>
                                 <td width="15%" class="text-sm text-left">{{ $course->level }}</td>
-                                <td width="25%" class="text-sm text-left">{{ 'xx' }}</td>
-                                <td class="flex gap-4 mx-auto text-center" width="10%">
-                                    <a href="{{ route('config_course', $course->id) }}"
+                                <td width="25%" class="text-sm text-center">{{ $course->sections->count() }}</td>
+                                <td class="items-center align-middle">
+                                    <a class="m-auto" href="{{ route('config_course', $course->id) }}"
                                         title="{{ __('configure course') . ' ' . $course->grado . '  ' . $course->name }}">
-                                        <i class="text-blue-500 icono fa-solid fa-person-chalkboard"></i>
+                                        <i class="text-2xl text-blue-500 icono fa-solid fa-person-chalkboard"></i>
                                     </a>
                                 </td>
 
@@ -132,7 +132,7 @@
                             "last": "Último",
                             "first": "Primero",
                         },
-                        "lengthMenu": "Mostrar  <select class='custom-select custom-select-sm'>" +
+                        "lengthMenu": "Mostrar  <select class='text-xs rounded' id='dt-length-0'>" +
                             "<option value='5'>5</option>" +
                             "<option value='10'>10</option>" +
                             "<option value='15'>15</option>" +

@@ -40,6 +40,10 @@
                                     wire:click="edit({{ $item }})"></i>
                                 <i class="text-red-500 cursor-pointer fa fa-eraser" title="{{ __('delete section') }}"
                                     wire:click="confirm({{ $item }})"></i>
+
+                                <i class="text-blue-500 cursor-pointer fa fa-book"
+                                    title="{{ __('add lesson to section') }}"
+                                    wire:click="addLesson({{ $item }})"></i>
                             </div>
                         </header>
                     </div>
@@ -49,4 +53,5 @@
     </article>
     @include('components.modales.editSectionModal')
     @include('components.modales.confirmSectionModal')
+    @include('components.modales.addLessonModal')
 </div>

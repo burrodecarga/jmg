@@ -10,6 +10,7 @@ class CourseSetions extends Component
 {
     public $open=false;
     public $openConfirm=false;
+    public $openLesson=false;
     public $course;
     public $section;
     public $sectionId;
@@ -77,6 +78,11 @@ class CourseSetions extends Component
         flash()->options([
             'timeout' => 1000,
         ])->success($message);
+    }
 
+    public function addLesson(Section $section){
+        $this->section = $section->name;
+        $this->sectionId = $section->id;
+        $this->openLesson = true;
     }
 }

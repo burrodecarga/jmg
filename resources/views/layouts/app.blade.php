@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="scroll-smooth" style="scroll-behavior: smooth;" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html style="{scroll-behavior: smooth;}" class="h-full scroll-smooth"
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">

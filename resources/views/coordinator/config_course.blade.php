@@ -1,4 +1,4 @@
-<x-admin-layout class="scroll-smooth focus:scroll-auto">
+<x-app-layout>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}" />
@@ -164,4 +164,4 @@
     </div>
     @push('scripts')
     @endpush
-</x-admin-layout>
+</x-app-layout>
