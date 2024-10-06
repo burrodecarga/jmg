@@ -153,7 +153,6 @@
                     <div class="p-2 border rounded border-1">
                         <div class="grid grid-cols-1 gap-1">
                             <div>
-
                                 @livewire('course-setions', compact('course'));
                             </div>
                         </div>

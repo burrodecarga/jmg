@@ -2,15 +2,22 @@
 
 namespace App\Livewire;
 
+use Livewire\WithFileUploads;
 use Livewire\Component;
 use App\Models\Section;
+use App\Models\Lesson;
 use App\Models\Course;
+
 
 class CourseSetions extends Component
 {
+
+    use WithFileUploads;
     public $open=false;
     public $openConfirm=false;
     public $openLesson=false;
+    public $lesson,$description,$image,$pdf,$video;
+
     public $course;
     public $section;
     public $sectionId;
@@ -85,4 +92,54 @@ class CourseSetions extends Component
         $this->sectionId = $section->id;
         $this->openLesson = true;
     }
+
+    public function saveLesson(){
+        $this->resetValidation();
+        $data = $this->validate([
+            'lesson'=>'required',
+            'description'=>'required',
+             'pdf'=>'sometimes|mimes:pdf'
+        ]);
+
+        Lesson::create([
+            'name'=>$this->lesson,
+            'description'=>$this->description,
+            'section_id'=>$this->sectionId
+        ]);
+        $this->openLesson = false;
+        if($this->pdf){
+            $this->resetValidation();
+            $this->validate([
+                'pdf'=>'required|mimes:pdf'
+            ]);
+            $this->addPdf();};
+        $this->reset('lesson','description');
+        $message = __('the action was completed successfully.');
+        flash()->options([
+            'timeout' => 1000,
+        ])->success($message);
+
+    }
+
+    public function addImage(){
+$this->validate([
+    'image'=>'required|mimes:png,jpg,jpeg,gif|max:2048'
+]);    }
+
+public function addPdf(){
+
+    if ($this->pdf) {
+       $title = $this->pdf->getClientOriginalName();
+        // Generate a unique filename with microtime
+        $filename = 'pdf' . microtime(true) . '.' . $this->pdf->getClientOriginalExtension();
+
+        // Save the file to the storage directory
+        $this->pdf->storeAs('pdf', $filename, 'public');
+
+        // Update the file_path attribute with the new filename
+        $this->pdf = $filename;
+
+        
+}}
+
 }

@@ -12,6 +12,7 @@ Route::get('/add_teachers_to_lectivo/{sede}', [CoordinatorController::class, 'ad
 Route::get('/add_teacher_to_course/{lectivo}', [CoordinatorController::class, 'add_teacher_to_course'])->name('add_teacher_to_course');
 Route::get('/courses_by_grado', [CoordinatorController::class, 'courses_by_grado'])->name('courses_by_grado');
 Route::get('/config_course/{course}', [CoordinatorController::class, 'config_course'])->name('config_course');
+Route::get('/config_lesson/{section}', [CoordinatorController::class, 'config_lesson'])->name('config_lesson');
 
 
 // Route::get('/list_of_course/{lectivo}', [CoordinatorController::class, 'list_of_course'])->name('list_of_course');

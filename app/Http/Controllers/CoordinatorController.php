@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Teacher;
 use App\Models\Sede;
+use App\Models\Section;
 use App\Models\Periodo;
 use App\Models\Level;
 use App\Models\Lectivo;
@@ -72,4 +73,10 @@ class CoordinatorController extends Controller
         return view('coordinator.config_course',compact('course','levels','categories'));
 
     }
+
+    public function config_lesson(Section $section){
+       return view('coordinator.config_lesson',compact('section'));
+    }
+
+
 }

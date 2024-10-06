@@ -41,6 +41,7 @@
                                 <i class="text-red-500 cursor-pointer fa fa-eraser" title="{{ __('delete section') }}"
                                     wire:click="confirm({{ $item }})"></i>
 
+
                                 <i class="text-blue-500 cursor-pointer fa fa-book"
                                     title="{{ __('add lesson to section') }}"
                                     wire:click="addLesson({{ $item }})"></i>
@@ -48,6 +49,22 @@
                         </header>
                     </div>
                 </article>
+                @foreach ($item->lessons as $l)
+                    <article class="mx-10 mb-3 rounded-md card">
+                        <div class="bg-blue-100 card-body">
+                            <header class="flex items-center justify-between pl-3 font-bold">
+                                {{ $l->name }}
+                                <div class="space-x-3">
+                                    <i wire:click="addImage"title="{{ __('add image') }}"
+                                        class="cursor-pointer fa-solid fa-photo-film"></i>
+                                    <i title="{{ __('add video') }}"class="cursor-pointer fa-brands fa-youtube"></i>
+                                    <i title="{{ __('add pdf') }}"class="cursor-pointer fa-solid fa-file-pdf"></i>
+                                </div>
+                            </header>
+                            <p class="pl-3 text-xs text-left">{{ $l->description }}</p>
+                        </div>
+                    </article>
+                @endforeach
             @endforeach
         </ul>
     </article>

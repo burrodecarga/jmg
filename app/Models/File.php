@@ -9,8 +9,14 @@ class File extends Model
 {
     use HasFactory;
 
-    public function images()
+    protected $fillable =['name','extension','url','description'];
+
+
+
+    public function files()
     {
-        return $this->morphMany(Image::class, 'imageable');
+        return $this->morphMany(File::class, 'fileable');
     }
+
+
 }
