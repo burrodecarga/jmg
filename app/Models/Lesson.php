@@ -23,4 +23,8 @@ class Lesson extends Model
     public function books(){
         return $this->hasMany(Book::class);
     }
+
+    public function images(){
+        return $this->morphMany(Image::class,'imageable');
+    }
 }

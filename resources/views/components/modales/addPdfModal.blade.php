@@ -5,8 +5,30 @@
     <x-slot name="content">
         <form wire:submit="addPdf">
             @csrf
+            <div class="flex-grow mb-2">
+                <x-label class="my-2 italic text-left capitalize" value="{{ __('title of book') }}" for="title" />
+                <x-input id="title" type="text" class="w-full my-2"
+                    placeholder="{{ __('input title of course') }}" wire:model="title" />
+                <x-input-error for="title" class="text-left" />
+            </div>
+            <div class="flex gap-3">
+                <div class="flex-grow mb-2">
+                    <x-label class="my-2 italic text-left capitalize" value="{{ __('author of book') }}"
+                        for="author" />
+                    <x-input id="author" type="text" class="w-full my-2"
+                        placeholder="{{ __('input author of course') }}" wire:model="author" />
+                    <x-input-error for="author" class="text-left" />
+                </div>
+                <div class="flex-grow-0 mb-2">
+                    <x-label class="my-2 italic text-left capitalize" value="{{ __('Number of pages') }}"
+                        for="pages" />
+                    <x-input id="pages" type="number" class="w-full my-2"
+                        placeholder="{{ __('input pages of book') }}" wire:model="pages" min="1" />
+                    <x-input-error for="pages" class="text-left" />
+                </div>
+            </div>
 
-            <div class="px-10 py-4 my-3 rounded bg-slate-300">
+            <div class="px-10 py-4 my-3 rounded bg-slate-50">
                 <div class="">
                     <div class="">
                         <div class="">

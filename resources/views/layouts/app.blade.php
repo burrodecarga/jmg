@@ -16,6 +16,12 @@
     <!-- Styles -->
     {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
 
+    <style>
+        html: {
+            scroll-behavior: smooth !important
+        }
+    </style>
+
     @livewireStyles
 
     @stack('styles')

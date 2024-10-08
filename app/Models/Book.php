@@ -9,7 +9,7 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable =['title','extension','url','category','lesson_id'];
+    protected $fillable =['title','extension','url','category','lesson_id','pages','author'];
 
     public function lesson(){
         return $this->belongsTo(Lesson::class);

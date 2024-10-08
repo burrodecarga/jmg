@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('author')->default('no registrado');
+            $table->integer('pages')->default(1);
             $table->string('category')->default('general');
             $table->string('extension')->default('pdf');
             $table->string('url');

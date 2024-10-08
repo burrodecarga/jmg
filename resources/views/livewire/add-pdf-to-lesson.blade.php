@@ -5,7 +5,8 @@
         </a>
         <div class="p-5">
             <a href="#">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $lesson->name }}</h5>
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ __('books') }}:
+                    {{ $lesson->name }}</h5>
             </a>
             <ol class="px-2 list-decimal">
                 @forelse ($lesson->books as $book)
@@ -19,7 +20,7 @@
             </ol>
 
             <a wire:click="$set('openPdfModal',true)" href="#"
-                class="inline-flex items-center w-full px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                class="inline-flex items-center w-full px-3 py-2 mt-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 {{ __('add pdf') }}
                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                     fill="none" viewBox="0 0 14 10">
@@ -29,5 +30,7 @@
             </a>
         </div>
     </div>
-    @include('components.modales.addPdfModal')
+    <div class="">
+        @include('components.modales.addPdfModal')
+    </div>
 </div>

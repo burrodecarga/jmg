@@ -12,6 +12,7 @@ class AddPdfToLesson extends Component
     use WithFileUploads;
     public $openPdfModal=false;
     public $lesson,$lessonId,$pdf;
+    public $title,$author,$pages=1;
 
     public function mount(Lesson $lesson){
       $this->lesson = $lesson;
@@ -32,6 +33,15 @@ class AddPdfToLesson extends Component
            $temp = $this->pdf->getClientOriginalName();
            $split = explode('.',$temp);
            $title = $split[0];
+           $author = 'no registrado';
+
+           if($this->title){
+            $title = $this->title;
+           }
+
+           if($this->author){
+            $author = $this->author;
+           }
             // Generate a unique filename with microtime
             $extension = $this->pdf->getClientOriginalExtension();
 
@@ -43,15 +53,17 @@ class AddPdfToLesson extends Component
             $this->pdf = $filename;
 
             Book::create([
-                'title'=>$title,
+                'title'=>mb_strtolower($title),
                 'category'=>'general',
                 'extension'=>$extension,
+                'author'=>mb_strtolower($author),
+                'pages'=>$this->pages,
                 'url'=>$url,
                 'lesson_id'=>$this->lessonId,
             ]);
 
      $this->openPdfModal=False;
-     $this->reset('pdf');
+     $this->reset('pdf','title','author','pages');
         $this->resetValidation();
         $message = __('the action was completed successfully.');
         flash()->options([
