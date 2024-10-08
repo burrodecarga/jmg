@@ -20,6 +20,11 @@ class Lesson extends Model
         return $this->belongsTo(Section::class);
     }
 
+    public function video(){
+        return $this->hasOne(Video::class);
+    }
+
+
     public function books(){
         return $this->hasMany(Book::class);
     }

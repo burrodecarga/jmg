@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('url');
             $table->string('iframe');
             $table->unsignedBigInteger('platform_id')->nullable();
-            $table->unsignedBigInteger('section_id');
+            $table->unsignedBigInteger('lesson_id');
             $table->timestamps();
             $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('set null');
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
     }
 

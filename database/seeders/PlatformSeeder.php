@@ -14,7 +14,7 @@ class PlatFormSeeder extends Seeder
      */
     public function run()
     {
-        Platform::create(['name' =>'youtuve']);
+        Platform::create(['name' =>'youtube']);
         Platform::create(['name' =>'vimeo']);
 
     }

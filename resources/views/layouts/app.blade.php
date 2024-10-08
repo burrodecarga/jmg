@@ -16,7 +16,7 @@
     <!-- Styles -->
     {{-- <link rel="stylesheet" href="{{ mix('css/app.css') }}"> --}}
 
-    <style>
+    <style type="css/tailwindcss">
         html: {
             scroll-behavior: smooth !important
         }
