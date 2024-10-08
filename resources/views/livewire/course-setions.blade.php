@@ -45,6 +45,8 @@
                                 <i class="text-blue-500 cursor-pointer fa fa-book"
                                     title="{{ __('add lesson to section') }}"
                                     wire:click="addLesson({{ $item }})"></i>
+
+                                {{-- <a href="{{ route('config_lesson', $item) }}">config</a> --}}
                             </div>
                         </header>
                     </div>
@@ -54,14 +56,14 @@
                         <div class="bg-blue-100 card-body">
                             <header class="flex items-center justify-between pl-3 font-bold">
                                 {{ $l->name }}
-                                <div class="space-x-3">
-                                    <i wire:click="addImage"title="{{ __('add image') }}"
-                                        class="cursor-pointer fa-solid fa-photo-film"></i>
-                                    <i title="{{ __('add video') }}"class="cursor-pointer fa-brands fa-youtube"></i>
-                                    <i title="{{ __('add pdf') }}"class="cursor-pointer fa-solid fa-file-pdf"></i>
+                                <div class="flex items-center justify-center w-6 h-6 p-3 bg-blue-400 rounded-full">
+                                    <a href="{{ route('config_lesson', $l->id) }} ">
+                                        <i class="text-white cursor-pointer fa-solid fa-photo-film"
+                                            title="{{ __('add resources') }}"></i></a>
+
                                 </div>
                             </header>
-                            <p class="pl-3 text-xs text-left">{{ $l->description }}</p>
+                            <p class="pl-3 text-xs text-justify text-wrap max-w-['36rem']:">{{ $l->description }}</p>
                         </div>
                     </article>
                 @endforeach

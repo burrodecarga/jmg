@@ -318,5 +318,9 @@
     "no level": "sin nivel",
     "no category": "sin categoría",
     "modify": "modificar",
-    "goal": "objetivo"
+    "goal": "objetivo",
+    "add lesson to course": "agregar lección a tema",
+    "lesson of section": "lección de tema",
+    "input lesson of section": "ingrese lección del tema",
+    "Does not have supporting material information in written form": "No tiene información material de apoyo de forma escrita"
 }

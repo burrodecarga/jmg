@@ -7,6 +7,7 @@ use Livewire\Component;
 use App\Models\Section;
 use App\Models\Lesson;
 use App\Models\Course;
+use App\Models\Book;
 
 
 class CourseSetions extends Component
@@ -98,7 +99,6 @@ class CourseSetions extends Component
         $data = $this->validate([
             'lesson'=>'required',
             'description'=>'required',
-             'pdf'=>'sometimes|mimes:pdf'
         ]);
 
         Lesson::create([
@@ -107,18 +107,15 @@ class CourseSetions extends Component
             'section_id'=>$this->sectionId
         ]);
         $this->openLesson = false;
-        if($this->pdf){
-            $this->resetValidation();
-            $this->validate([
-                'pdf'=>'required|mimes:pdf'
-            ]);
-            $this->addPdf();};
+        // if($this->pdf){
+        //     $this->resetValidation();
+        //     $this->addPdf();};
         $this->reset('lesson','description');
+        $this->resetValidation();
         $message = __('the action was completed successfully.');
         flash()->options([
             'timeout' => 1000,
         ])->success($message);
-
     }
 
     public function addImage(){
@@ -129,17 +126,28 @@ $this->validate([
 public function addPdf(){
 
     if ($this->pdf) {
-       $title = $this->pdf->getClientOriginalName();
+       $temp = $this->pdf->getClientOriginalName();
+       $split = explode('.',$temp);
+       $title = $split[0];
         // Generate a unique filename with microtime
-        $filename = 'pdf' . microtime(true) . '.' . $this->pdf->getClientOriginalExtension();
+        $extension = $this->pdf->getClientOriginalExtension();
 
+        $filename = 'pdf' . microtime(true) . '.' . $extension;
         // Save the file to the storage directory
-        $this->pdf->storeAs('pdf', $filename, 'public');
+        $url = $this->pdf->storeAs('pdf', $filename, 'public');
 
         // Update the file_path attribute with the new filename
         $this->pdf = $filename;
 
-        
+        Book::create([
+            'title'=>$title,
+            'category'=>'general',
+            'extension'=>$extension,
+            'url'=>$url,
+            'section_id'=>$this->sectionId,
+        ]);
+
+
 }}
 
 }

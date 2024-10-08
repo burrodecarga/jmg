@@ -8,6 +8,7 @@ use App\Models\Sede;
 use App\Models\Section;
 use App\Models\Periodo;
 use App\Models\Level;
+use App\Models\Lesson;
 use App\Models\Lectivo;
 use App\Models\Grado;
 use App\Models\Course;
@@ -74,8 +75,10 @@ class CoordinatorController extends Controller
 
     }
 
-    public function config_lesson(Section $section){
-       return view('coordinator.config_lesson',compact('section'));
+    public function config_lesson($id){
+        $lesson = Lesson::find($id);
+        //dd($lesson);
+       return view('coordinator.config_lesson',compact('lesson'));
     }
 
 
