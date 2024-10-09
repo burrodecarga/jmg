@@ -1,7 +1,14 @@
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-    <a href="#">
-        <img class="object-cover h-48 rounded-t-lg w-96" src="{{ asset('storage/img/image-1.jpg') }}" alt="" />
-    </a>
+<div class="flex-grow w-full bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    @if ($lesson->video)
+        <div class="p-4">
+            <iframe class="w-full aspect-video ..." src="{{ $lesson->video->url }}"></iframe>
+        </div>
+    @else
+        <a href="#">
+            <img class="object-cover w-full h-48 rounded-t-lg" src="{{ asset('storage/img/image-1.jpg') }}"
+                alt="" />
+        </a>
+    @endif
     <div class="p-5">
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Noteworthy

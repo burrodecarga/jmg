@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
+use App\Observers\VideoObserver;
+use App\Models\Video;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        //Video::observe(VideoObserver::class);
 
         Gate::before(function ($user, $ability) {
             return $user->hasRole('super-admin') ? true : null;

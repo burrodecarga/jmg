@@ -321,6 +321,8 @@
     "goal": "objetivo",
     "add lesson to course": "agregar lección a tema",
     "lesson of section": "lección de tema",
+    "back": "regresar",
     "input lesson of section": "ingrese lección del tema",
-    "Does not have supporting material information in written form": "No tiene información material de apoyo de forma escrita"
+    "does not have supporting material information in written form": "no tiene información material de apoyo de forma escrita",
+    "does not have supporting material information in image form": "no tiene información material de apoyo de forma de imagen"
 }

@@ -5,6 +5,7 @@
     <x-slot name="content">
         <form wire:submit="addVideo">
             @csrf
+
             <div class="flex-grow mb-2">
                 <x-label class="my-2 italic text-left capitalize" value="{{ __('name of video') }}" for="name" />
                 <x-input id="name" type="text" class="w-full my-2" placeholder="{{ __('input name of video') }}"
@@ -14,10 +15,11 @@
             <div class="flex gap-1">
 
                 <div class="flex-grow mb-2">
-                    <x-label class="my-2 italic text-left capitalize" value="{{ __('url of video') }}" for="url" />
-                    <x-input id="url" type="text" class="w-full my-2"
-                        placeholder="{{ __('input url of video') }}" wire:model="url" />
-                    <x-input-error for="url" class="text-left" />
+                    <x-label class="my-2 italic text-left capitalize" value="{{ __('iframe of video') }}"
+                        for="iframe" />
+                    <x-input id="iframe" type="text" class="w-full my-2"
+                        placeholder="{{ __('input iframe of video') }}" wire:model="iframe" />
+                    <x-input-error for="iframe" class="text-left" />
                 </div>
 
                 <div class="flex-grow-0 mb-2">
@@ -25,8 +27,9 @@
                         for="platform" />
                     <select id="platform" type="text" class="w-full my-2 rounded"
                         placeholder="{{ __('input platform of video') }}" wire:model="platform">
-                        <option>youtube</option>
-                        <option>vimeo</option>
+                        @foreach ($platforms as $platform)
+                            <option value="{{ $platform->id }}">{{ $platform->name }}</option>
+                        @endforeach
                     </select>
                     <x-input-error for="platform" class="text-left" />
                 </div>
