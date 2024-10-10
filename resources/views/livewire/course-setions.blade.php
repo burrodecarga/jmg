@@ -56,11 +56,18 @@
                         <div class="bg-blue-100 card-body">
                             <header class="flex items-center justify-between pl-3 font-bold">
                                 {{ $l->name }}
-                                <div class="flex items-center justify-center w-6 h-6 p-3 bg-blue-400 rounded-full">
-                                    <a href="{{ route('config_lesson', $l->id) }} ">
-                                        <i class="text-white cursor-pointer fa-solid fa-photo-film"
-                                            title="{{ __('add resources') }}"></i></a>
+                                <div class="flex items-center justify-between gap-3">
 
+                                    <div class="flex items-center justify-center w-6 h-6 p-3 bg-blue-400 rounded-full">
+                                        <i class="text-white cursor-pointer fa fa-edit" title="{{ __('edit lesson') }}"
+                                            wire:click="editLesson({{ $l->id }})"></i>
+                                    </div>
+                                    <div class="flex items-center justify-center w-6 h-6 p-3 bg-blue-400 rounded-full">
+                                        <a href="{{ route('config_lesson', $l->id) }} ">
+                                            <i class="text-white cursor-pointer fa-solid fa-photo-film"
+                                                title="{{ __('add resources') }}"></i></a>
+
+                                    </div>
                                 </div>
                             </header>
                             <p class="pl-3 text-xs text-justify text-wrap max-w-['36rem']:">{{ $l->description }}</p>
@@ -73,4 +80,5 @@
     @include('components.modales.editSectionModal')
     @include('components.modales.confirmSectionModal')
     @include('components.modales.addLessonModal')
+    @include('components.modales.editLessonModal')
 </div>

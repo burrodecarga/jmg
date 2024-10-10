@@ -17,6 +17,7 @@ class CourseSetions extends Component
     public $open=false;
     public $openConfirm=false;
     public $openLesson=false;
+    public $openEditLesson=false;
     public $lesson,$description,$image,$pdf,$video;
 
     public $course;
@@ -57,6 +58,13 @@ class CourseSetions extends Component
         $this->section = $section->name;
         $this->sectionId = $section->id;
         $this->open = true;
+    }
+
+    public function editLesson(Lesson $lesson){
+        $this->lesson = $lesson->name;
+        $this->description = $lesson->description;
+        $this->lessonId = $lesson->id;
+        $this->openEditLesson = true;
     }
 
     public function update(){
@@ -149,5 +157,14 @@ public function addPdf(){
 
 
 }}
+
+public function deleteLesson(Lesson $lesson){
+    Lesson::destroy($lesson->id);
+    $this->openEditLesson = false;
+    $message = __('the action was completed successfully.');
+    flash()->options([
+        'timeout' => 1000,
+    ])->success($message);
+}
 
 }
