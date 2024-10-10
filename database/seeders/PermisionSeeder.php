@@ -94,6 +94,13 @@ class PermisionSeeder extends Seeder
         Permission::create(['name' => 'courses.show', 'privilege' => 'course view']);
 
 
+        Permission::create(['name' => 'books.index', 'privilege' => 'book list']);
+        Permission::create(['name' => 'books.create', 'privilege' => 'book create']);
+        Permission::create(['name' => 'books.store', 'privilege' => 'book create']);
+        Permission::create(['name' => 'books.edit', 'privilege' => 'book edit']);
+        Permission::create(['name' => 'books.update', 'privilege' => 'book edit']);
+        Permission::create(['name' => 'books.destroy', 'privilege' => 'book delete']);
+        Permission::create(['name' => 'books.show', 'privilege' => 'book view']);
 
         Permission::create(['name' => 'padres.index', 'privilege' => 'padre list']);
         Permission::create(['name' => 'padres.create', 'privilege' => 'padre create']);
@@ -108,36 +115,12 @@ class PermisionSeeder extends Seeder
 
 
 
-        // //permiso de doctor admin
-        // Permission::create(['name'=>'doctor.index','privilege'=>'doctor panel']);
-
-        // //Permisos de Office
-
-        // Permission::create(['name'=>'offices.index','privilege'=>'office list']);
-        // Permission::create(['name'=>'offices.create','privilege'=>'office create']);
-        // Permission::create(['name'=>'offices.store','privilege'=>'office create']);
-        // Permission::create(['name'=>'offices.edit','privilege'=>'office edit']);
-        // Permission::create(['name'=>'offices.update','privilege'=>'office edit']);
-        // Permission::create(['name'=>'offices.destroy','privilege'=>'office delete']);
-        // Permission::create(['name'=>'offices.show','privilege'=>'office view']);
-
-        //permisos specialties
-        // Permission::create(['name'=>'specialties.index','privilege'=>'specialties list']);
-        // Permission::create(['name'=>'specialties.create','privilege'=>'specialties create']);
-        // Permission::create(['name'=>'specialties.store','privilege'=>'specialties create']);
-        // Permission::create(['name'=>'specialties.edit','privilege'=>'specialties edit']);
-        // Permission::create(['name'=>'specialties.update','privilege'=>'specialties edit']);
-        // Permission::create(['name'=>'specialties.destroy','privilege'=>'specialties delete']);
-        // Permission::create(['name'=>'specialties.show','privilege'=>'specialties view']);
-
-        // Permission::create(['name'=>'curriculum.index','privilege'=>'curriculum panel']);
-
 
 
 
         $super_admin_permissions = [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59];
         //$super_admin_permissions=[];
-        $coordinator_permissions = [8,9,10,11,12,13,14];
+        $coordinator_permissions = [8,9,10,11,12,13,14,57,58,58,60,61,62,63];
         $admin_permissions = [2, 44, 45, 46, 47, 48, 49, 50];
         $parent_permissions = [];
         $superAdmin = Role::findByName('super-admin');

@@ -9,7 +9,24 @@ class Book extends Model
 {
     use HasFactory;
 
-    protected $fillable =['title','extension','url','category','lesson_id','pages','author'];
+    const FISICO  = 1;
+    const VIRTUAL  = 0;
+
+    protected $fillable =[
+'title',
+'author',
+'category',
+'isbn',
+'editorial',
+'cuantity',
+'pages',
+'status',
+'course',
+'level',
+'grado',
+'extension',
+'url',
+];
 
     public function lesson(){
         return $this->belongsTo(Lesson::class);

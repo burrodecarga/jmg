@@ -64,19 +64,12 @@
         </div>
     </x-slot>
 
-    <div class="min-h-screen mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 py-6 md:grid-cols-4">
+    <div class="h-screen mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 gap-4 py-6 md:grid-cols-4">
 
             <!-- component -->
-            <div class="col-span-1 sidebar">
+            {{-- <div class="col-span-4">
 
-                <div
-                    class="relative flex flex-col bg-clip-border rounded-xl bg-white text-gray-700 h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
-                    <div class="p-4 mb-2">
-                        <h5
-                            class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-gray-900">
-                            {{ __('main menu') }} </h5>
-                    </div>
                     <nav class="flex flex-col gap-1 min-w-[240px] p-2 font-sans text-base font-normal text-gray-700">
                         @include('coordinator.partials.route_add_sectios')
                         @include('coordinator.partials.route_add_teachers')
@@ -137,25 +130,27 @@
                         </div>
                     </nav>
                 </div>
-
-                <div class="w-full px-4 pt-5 mx-auto mb-8 ">
-                    <div class="py-1 text-sm text-gray-700">
-                        Made with <a class="font-semibold text-gray-700"
-                            href="https://www.material-tailwind.com/docs/react/sidebar?ref=tailwindcomponents"
-                            target="_blank">Material Tailwind</a> by <a
-                            href="https://www.creative-tim.com?ref=tailwindcomponents"
-                            class="font-semibold text-gray-700" target="_blank"> Creative Tim</a>.
+            </div> --}}
+            {{-- navegador --}}
+            <div class="col-span-1 overflow-hidden bg-white shadow-xl min-h-svh sm:rounded-lg">
+                <div class="grid grid-rows-9 ">
+                    <div>
+                        <div class="p-4 mb-2 bg-slate-400">
+                            <h5
+                                class="block font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-center text-gray-900 ">
+                                {{ __('main menu') }} </h5>
+                        </div>
                     </div>
+                    @include('coordinator.partials.route_add_sectios')
+                    @include('coordinator.partials.route_add_teachers')
+                    @include('coordinator.partials.route_create_lectivos')
+                    @include('coordinator.partials.route_add_teachers_to_lectivo')
+                    @include('coordinator.partials.route_grado_courses')
+                    @include('coordinator.partials.route_books')
                 </div>
             </div>
-            {{-- navegador --}}
-            <div class="overflow-hidden bg-white shadow-xl min-h-svh sm:rounded-lg">
-                <div class="p-6 bg-white lg:p-8">
-                    <div class="grid grid-cols-1 gap-2 md:grid-cols-3 ">
-                        <a href="{{ route('add_sections', [$sede->id]) }}">{{ __('add sections') }}</a>
-                        <a href="{{ route('add_teachers', [$sede->id]) }}">{{ __('add teachers') }} </a>
-                    </div>
-                </div>
+            <div class="col-span-3 overflow-hidden bg-white shadow-xl min-h-svh sm:rounded-lg">
+
             </div>
 
         </div>
