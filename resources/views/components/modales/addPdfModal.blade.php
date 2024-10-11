@@ -1,10 +1,11 @@
-<x-dialog-modal wire:model="openPdfModal" maxWidth='2xl'>
+<x-dialog-modal wire:model="openPdfModal" maxWidth='2xl' enctype="multipart/form-data">
     <x-slot name="title">
         <h1 class="text-sm uppercase">{{ __('add PDF to lesson') }} {{ $lesson->name }}</h1>
     </x-slot>
     <x-slot name="content">
         <form wire:submit="addPdf">
             @csrf
+            @method('POST')
             <div class="flex-grow mb-2">
                 <x-label class="my-2 italic text-left capitalize" value="{{ __('title of book') }}" for="title" />
                 <x-input id="title" type="text" class="w-full my-2"

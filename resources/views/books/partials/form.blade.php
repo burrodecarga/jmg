@@ -25,7 +25,7 @@
         <x-label class="my-2 italic capitalize" value="{{ __('course of book') }}" for="course" />
         <select name="course_id" class="w-full text-xs rounded">
             @foreach ($courses as $course)
-                <option>
+                <option value="{{ $course->id }}">
                     {{ $course->name . '->' . $course->grado }}
                 </option>
             @endforeach
@@ -75,7 +75,7 @@
 
         <div class="mb-1.5">
             <x-label class="my-2 italic capitalize" value="{{ __('quantity of book') }}" for="quantity" />
-            <x-input type="number" min="1" name="quantity" class="w-full text-xs"
+            <x-input required type="number" min="1" name="quantity" class="w-full text-xs"
                 placeholder="{{ __('input quantity of book') }}" value="{{ old('quantity', $book->quantity) }}" />
             <x-input-error for="quantity" />
         </div>

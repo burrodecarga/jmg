@@ -21,7 +21,7 @@ class BookController extends Controller implements HasMiddleware
         return [
             'auth',
             new Middleware('can:books.create', only: ['create']),
-            new Middleware('can:books.store', only: ['store']),
+            new Middleware('can:books.store', only: ['books.store']),
             new Middleware('can:books.show', only: ['show']),
             new Middleware('can:books.update', only: ['update']),
             new Middleware('can:books.edit', only: ['edit']),
@@ -34,7 +34,7 @@ class BookController extends Controller implements HasMiddleware
     public function index()
     {
         $books = Book::all();
-        return view('books.index',compact('books'));
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -42,13 +42,13 @@ class BookController extends Controller implements HasMiddleware
      */
     public function create()
     {
-       $book = new Book();
+        $book = new Book();
         $courses = Course::orderBy('name')->get();
         $categories = Category::orderBy('name')->get();
         $levels = Level::orderBy('name')->get();
-        $title=__('create a new book');
-        $btn=__('create');
-       return view('books.create',compact('title','btn','courses','book','categories','levels'));
+        $title = __('create a new book');
+        $btn = __('create');
+        return view('books.create', compact('title', 'btn', 'courses', 'book', 'categories', 'levels'));
     }
 
     /**
@@ -56,7 +56,23 @@ class BookController extends Controller implements HasMiddleware
      */
     public function store(StoreBookRequest $request)
     {
-        //
+
+        $course = Course::find($request->input('course_id'));
+        $book = Book::create([
+            'title' => $request->input('title'),
+            'author' => $request->input('author'),
+            'category' => $request->input('category'),
+            'isbn' => $request->input('isbn'),
+            'editorial' => $request->input('editorial'),
+            'cuantity' => $request->input('cuantity'),
+            'pages' => $request->input('pages'),
+            'status' => $request->input('status'),
+            'course' => $course->name,
+            'level' => $request->input('level'),
+            'grado' => $course->grado,
+            'extension' => $request->input('extension'),
+            'url' => $request->input('url'),
+        ]);
     }
 
     /**

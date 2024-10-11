@@ -34,11 +34,11 @@
                 {{ __('cancel') }}
             </button>
 
-            <button type="button" wire:click="deleteLesson({{ $item }})"
+            {{-- <button type="button" wire:click="deleteLesson({{ $item }})"
                 wire:confirm="Are you sure you want to delete this post?"
                 class="px-3 py-2.5 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-700 focus:ring-4 focus:ring-red-800">
                 {{ __('delete') }}
-            </button>
+            </button> --}}
 
         </form>
     </x-slot>

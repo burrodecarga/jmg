@@ -10,13 +10,11 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('books', function (Blueprint $table) {
+        Schema::create('pdfs', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('author')->nullable();
             $table->string('category')->nullable();
-            $table->string('isbn')->nullable();
-            $table->string('editorial')->nullable();
             $table->integer('quantity')->default(1);
             $table->integer('pages')->default(1);
             $table->integer('status')->default(1);
@@ -26,7 +24,7 @@ return new class extends Migration {
             $table->string('extension')->default('pdf');
             $table->string('url');
             $table->unsignedBigInteger('grado_id')->nullable();
-            $table->unsignedBigInteger('lesson_id')->nullable();
+            $table->unsignedBigInteger('lesson_id');
             $table->timestamps();
             $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
         });
@@ -37,6 +35,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('books');
+        Schema::dropIfExists('pdfs');
     }
 };
