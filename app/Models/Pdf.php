@@ -8,4 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 class Pdf extends Model
 {
     use HasFactory;
+
+    const FISICO = 1;
+    const VIRTUAL = 0;
+
+    protected $fillable = [
+        'title',
+        'author',
+        'category',
+        'isbn',
+        'editorial',
+        'quantity',
+        'pages',
+        'status',
+        'course',
+        'level',
+        'grado',
+        'extension',
+        'url',
+        'lesson_id'
+    ];
+
+
+
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
 }
