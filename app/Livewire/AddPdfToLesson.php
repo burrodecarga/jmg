@@ -4,21 +4,25 @@ namespace App\Livewire;
 
 use Livewire\WithFileUploads;
 use Livewire\Component;
+use App\Models\Section;
 use App\Models\Pdf;
 use App\Models\Lesson;
+use App\Models\Course;
 use App\Models\Book;
 
 class AddPdfToLesson extends Component
 {
     use WithFileUploads;
     public $openPdfModal = false;
-    public $lesson, $lessonId, $pdf;
+    public $lesson, $lessonId, $pdf, $course;
     public $title, $author, $pages = 1;
 
     public function mount(Lesson $lesson)
     {
         $this->lesson = $lesson;
         $this->lessonId = $lesson->id;
+        $section = Section::find($lesson->section_id);
+        $this->course = Course::find($section->course_id);
     }
 
     protected $rules = [
@@ -63,6 +67,11 @@ class AddPdfToLesson extends Component
                 'pages' => $this->pages,
                 'url' => $url,
                 'lesson_id' => $this->lessonId,
+                'course' => $this->course->name,
+                'level' => $this->course->level,
+                'grado' => $this->course->grado,
+                'grado_id' => $this->course->grado_id,
+
             ]);
 
             $this->openPdfModal = False;

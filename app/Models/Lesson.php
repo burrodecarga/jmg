@@ -16,20 +16,24 @@ class Lesson extends Model
     ];
 
 
-    public function section(){
+    public function section()
+    {
         return $this->belongsTo(Section::class);
     }
 
-    public function video(){
+    public function video()
+    {
         return $this->hasOne(Video::class);
     }
 
 
-    public function books(){
-        return $this->hasMany(Book::class);
+    public function pdfs()
+    {
+        return $this->hasMany(Pdf::class);
     }
 
-    public function images(){
-        return $this->morphMany(Image::class,'imageable');
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }

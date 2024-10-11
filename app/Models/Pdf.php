@@ -26,7 +26,8 @@ class Pdf extends Model
         'grado',
         'extension',
         'url',
-        'lesson_id'
+        'lesson_id',
+        'grado_id'
     ];
 
 

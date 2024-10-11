@@ -49,6 +49,8 @@
                                 {{-- <a href="{{ route('config_lesson', $item) }}">config</a> --}}
                             </div>
                         </header>
+                        <p class="p-3 italic font-semibold text-red-600">
+                            {{ __('num of lessons') . ' : ' . $item->lessons()->count() }}</p>
                     </div>
                 </article>
                 @foreach ($item->lessons as $l)

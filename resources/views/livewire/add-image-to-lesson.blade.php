@@ -10,9 +10,9 @@
     <div class="p-5">
         <a href="#">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ __('images') }}:
-                {{ $lesson->name }}</h5>
+            </h5>
         </a>
-        <ol class="px-2 list-decimal">
+        <ol class="px-2 mb-4 list-decimal">
             @forelse ($lesson->images as $img)
                 <li><span class="text-sm font-semibold ">
                         {{ $img->name }}
