@@ -103,12 +103,31 @@ class CourseSetions extends Component
 
         $section = Section::find($this->sectionId);
 
-        // if ($school->logo <> '/storage/schools/foto.png') {
-        //     if (file_exists(public_path($school->image))) {
-        //         unlink(public_path($school->image));
-        //         //dd('borrado');
-        //     }
-        // }
+        $lessons = $section->lessons;
+
+        foreach ($lessons as $lesson) {
+            foreach ($lesson->images as $image) {
+                if (file_exists(public_path('storage\/' . $image->url))) {
+                    unlink(public_path('storage\/' . $image->url));
+                    $image->delete();
+                    //dd('EXISTE');            //         //dd('borrado');
+                } else {
+                    //dd('NO EXISTE', public_path('storage\/' . $image->url));
+                }
+            }
+        }
+
+        foreach ($lessons as $lesson) {
+            foreach ($lesson->pdfs as $pdf) {
+                if (file_exists(public_path('storage\/' . $pdf->url))) {
+                    unlink(public_path('storage\/' . $pdf->url));
+                    //dd('EXISTE');            //         //dd('borrado');
+                } else {
+                    //dd('NO EXISTE', public_path('storage\/' . $pdf->url));
+                }
+            }
+        }
+        //dd('Fin');
         Section::destroy($this->sectionId);
 
 

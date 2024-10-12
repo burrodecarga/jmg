@@ -32,8 +32,10 @@ class LessonObserver
         foreach ($images as $image) {
             if (file_exists(public_path($image->url))) {
                 unlink(public_path($image->url));                //         //dd('borrado');
+                $image->destroy();
             }
         }
+
 
         foreach ($pdfs as $pdf) {
             if (file_exists(public_path($pdf->url))) {
@@ -41,6 +43,23 @@ class LessonObserver
             }
         }
     }
+
+    public function deleting(Lesson $lesson): void
+    {
+        $images = $lesson->images;
+        $pdfs = $lesson->pdfs;
+        foreach ($images as $image) {
+            if (file_exists(public_path('storage\/' . $image->url))) {
+                unlink(public_path('storage\/' . $image->url));
+            }
+        }
+        foreach ($pdfs as $pdf) {
+            if (file_exists(public_path('storage\/' . $pdf->url))) {
+                unlink(public_path('storage\/' . $pdf->url));
+            }
+        }
+    }
+
 
     /**
      * Handle the Lesson "restored" event.

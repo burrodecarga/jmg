@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Arr;
 use App\Observers\VideoObserver;
+use App\Observers\LessonObserver;
 use App\Models\Video;
+use App\Models\Lesson;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +34,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         //Video::observe(VideoObserver::class);
+        Lesson::observe(LessonObserver::class);
 
         Gate::before(function ($user, $ability) {
             return $user->hasRole('super-admin') ? true : null;
@@ -40,7 +43,7 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('canRole', function (string $value) {
             $permissions = auth()->user()->getPermissionsViaRoles()->pluck('name')->toArray();
             //dd($value,$permissions);
-            return in_array($value.'.index',$permissions);
+            return in_array($value . '.index', $permissions);
         });
         // Gate::before(function ($user, $ability) {
         //     return true;
