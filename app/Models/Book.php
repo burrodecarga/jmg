@@ -24,8 +24,8 @@ class Book extends Model
         'course',
         'level',
         'grado',
-        'extension',
-        'url',
+        'grado_id',
+        'sede_id',
     ];
 
 
@@ -34,4 +34,6 @@ class Book extends Model
     {
         return $this->belongsTo(Lesson::class);
     }
+
+
 }

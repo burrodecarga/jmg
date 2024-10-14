@@ -18,7 +18,7 @@ class CourseSetions extends Component
     public $openConfirm = false;
     public $openLesson = false;
     public $openEditLesson = false;
-    public $lesson, $description, $image, $pdf, $video;
+    public $lesson, $description, $image, $pdf, $video, $lessonId;
 
     public $course;
     public $section;
@@ -71,6 +71,7 @@ class CourseSetions extends Component
 
     public function editLesson(Lesson $lesson)
     {
+
         $this->lesson = $lesson->name;
         $this->description = $lesson->description;
         $this->lessonId = $lesson->id;
@@ -216,6 +217,21 @@ class CourseSetions extends Component
         flash()->options([
             'timeout' => 1000,
         ])->success($message);
+    }
+
+    public function updateLesson()
+    {
+        $this->resetValidation();
+        $data = $this->validate([
+            'lesson' => 'required',
+            'description' => 'required',
+        ]);
+        $lesson = Lesson::find($this->lessonId);
+        $lesson->name = $this->lesson;
+        $lesson->description = $this->description;
+        $lesson->save();
+        $this->openEditLesson = false;
+
     }
 
 }

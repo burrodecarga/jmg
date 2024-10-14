@@ -1,12 +1,13 @@
 <x-app-layout>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.dataTables.css') }}">
     <x-slot name="header">
         <h2 class="w-full text-xl font-semibold sm:w-full md:w-3/4">{{ __('book Adminitration Panel') }}</h2>
     </x-slot>
 
     <div class="container mt-10">
-        <div class="w-full mx-auto text-center card md:w-11/12 min-w-12">
+        <div class="mx-auto text-center card min-w-12">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
                     <h4>
@@ -24,22 +25,27 @@
                 </div>
             </div>
             <div class="card-body">
-                <table id="book" class="table text-sm table-hover" style="width:100%">
+                <table id="book" class="display" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>{{ __('grado') }}</th>
-                            <th>{{ __('book') }}</th>
-                            <th>{{ __('actions') }}</th>
+                            <th width="10%">{{ __('id') }}</th>
+                            <th width="30%">{{ __('grado') }}</thlass=>
+                            <th width="20%">{{ __('book') }}</thlass=>
+                            <th width="20%">{{ __('author') }}</th>
+                            <th width="10%">{{ __('quantity') }}</th>
+                            <th width="10%">{{ __('actions') }}</th>
                         </tr>
                     </thead>
                     <tbody class="text-justify">
                         @foreach ($books as $book)
-                            <tr>
-                                <td width="20%">{{ $book->id }}</td>
-                                <td width="20%">{{ $book->grado }}</td>
-                                <td width="40%">{{ $book->name }}</td>
-                                <td width="20%" class="flex justify-between w-full mx-auto text-center">
+                            <tr class="text-xs">
+                                <td width="10%">{{ $book->id }}</td>
+                                <td width="30%">{{ $book->grado }}<br>{{ $book->course }}</td>
+                                <td width="20%">{{ $book->title }}</td>
+                                <td width="20%">{{ $book->author }}</td>
+                                <td width="10%" class="text-center">{{ $book->quantity }}</td>
+                                <td width="10%" class="flex w-full gap-3 text-center">
+
                                     <a href="{{ route('books.show', $book->id) }}" class="text-green-600">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
                                             viewBox="0 0 24 24" stroke="currentColor">
@@ -58,7 +64,7 @@
                                     </a>
 
                                     <form action="{{ route('books.destroy', $book->id) }}" method="POST"
-                                        class="text-red-600">
+                                        class="text-red-600 form-delete">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit">
@@ -69,7 +75,8 @@
                                             </svg>
                                         </button>
 
-                                    </form>
+                                    </form><br>
+                                    <p class="inline-block">.</p>
                                 </td>
                             </tr>
                         @endforeach
@@ -95,7 +102,7 @@
                 $('#book').DataTable({
                     "responsive": true,
                     "columnDefs": [{
-                        "targets": [3],
+                        "targets": [5],
                         "orderable": false
                     }],
                     "pagingType": "full_numbers",
@@ -127,10 +134,36 @@
                     },
 
                 });
-                setTimeout(function() {
-                    $('#alert').remove()
-                }, 300)
 
+                // setTimeout(function() {
+                //     $('#alert').remove()
+                // }, 300)
+                $('.form-delete').submit(function(e) {
+                    // alert('XX')
+                    e.preventDefault();
+
+                    Swal.fire({
+                        title: 'Está seguro de querer eliminar escuela?',
+                        text: "Esta operación es irreversible",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Eliminar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+
+                            this.submit();
+                            // Swal.fire(
+                            //   'Deleted!',
+                            //   'Your file has been deleted.',
+                            //   'success'
+                            // )
+                        }
+                    })
+
+
+                })
             });
         </script>
     @endpush

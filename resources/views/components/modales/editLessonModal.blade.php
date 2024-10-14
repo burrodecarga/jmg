@@ -3,7 +3,7 @@
         <h1 class="text-sm uppercase">{{ __('edit lesson of course') }} {{ $course->name }}</h1>
     </x-slot>
     <x-slot name="content">
-        <form wire:submit="saveLesson">
+        <form wire:submit="updateLesson">
             @csrf
             <div class="grid grid-cols-1 gap-1 px-10 mb-2 rounded bg-slate-50">
                 <div class="">
@@ -27,7 +27,7 @@
             </div>
             <button type="submit"
                 class="px-3 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
-                {{ __('create') }}
+                {{ __('update') }}
             </button>
             <button type="button" wire:click="$set('openEditLesson',false)"
                 class="px-3 py-2.5 text-sm font-medium text-center text-white bg-orange-600 rounded-lg hover:bg-orange-700 focus:ring-4 focus:ring-orange-800">

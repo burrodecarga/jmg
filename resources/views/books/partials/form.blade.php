@@ -25,7 +25,7 @@
         <x-label class="my-2 italic capitalize" value="{{ __('course of book') }}" for="course" />
         <select name="course_id" class="w-full text-xs rounded">
             @foreach ($courses as $course)
-                <option value="{{ $course->id }}">
+                <option value="{{ $course->id }}" @if ($course->id == $book->grado_id) selected @endif>
                     {{ $course->name . '->' . $course->grado }}
                 </option>
             @endforeach
@@ -80,14 +80,6 @@
             <x-input-error for="quantity" />
         </div>
 
-    </div>
-    <div class="mb-1.5 hidden">
-        <x-label class="my-2 italic capitalize" value="{{ __('type of book') }}" for="status" />
-        <select name="status" class="w-full text-xs rounded">
-            <option value="1">Formato pdf</option>
-            <option value="2" selected>libro físico</option>
-        </select>
-        <x-input-error for="status" />
     </div>
 </div>
 

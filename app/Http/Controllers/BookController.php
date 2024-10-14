@@ -33,8 +33,16 @@ class BookController extends Controller implements HasMiddleware
      */
     public function index()
     {
-        $books = Book::all();
-        return view('books.index', compact('books'));
+        $sede = auth()->user()->coordina()->first();
+        if (is_null($sede)) {
+            $message = __('No sede');
+            flash()->options([
+                'timeout' => 500,
+            ])->error($message);
+            return redirect()->route('books.index');
+        }
+        $books = Book::where('sede_id', $sede->id)->get();
+        return view('books.index', compact('books', 'sede'));
     }
 
     /**
@@ -43,6 +51,8 @@ class BookController extends Controller implements HasMiddleware
     public function create()
     {
         $book = new Book();
+        $book->quantity = 1;
+        $book->pages = 1;
         $courses = Course::orderBy('name')->get();
         $categories = Category::orderBy('name')->get();
         $levels = Level::orderBy('name')->get();
@@ -57,22 +67,31 @@ class BookController extends Controller implements HasMiddleware
     public function store(StoreBookRequest $request)
     {
 
+        //dd($request->all());
         $course = Course::find($request->input('course_id'));
+        $sede = auth()->user()->coordina()->first();
+
         $book = Book::create([
             'title' => $request->input('title'),
             'author' => $request->input('author'),
             'category' => $request->input('category'),
             'isbn' => $request->input('isbn'),
             'editorial' => $request->input('editorial'),
-            'cuantity' => $request->input('cuantity'),
+            'quantity' => $request->input('quantity'),
             'pages' => $request->input('pages'),
-            'status' => $request->input('status'),
+            'status' => 1,
             'course' => $course->name,
             'level' => $request->input('level'),
             'grado' => $course->grado,
-            'extension' => $request->input('extension'),
-            'url' => $request->input('url'),
+            'grado_id' => $course->grado_id,
+            'sede_id' => $sede->id,
         ]);
+        $message = __('book added successfully');
+        flash()->options([
+            'timeout' => 500,
+        ])->success($message);
+        return redirect()->route('books.index');
+
     }
 
     /**
@@ -80,7 +99,7 @@ class BookController extends Controller implements HasMiddleware
      */
     public function show(Book $book)
     {
-        //
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -88,7 +107,12 @@ class BookController extends Controller implements HasMiddleware
      */
     public function edit(Book $book)
     {
-        //
+        $courses = Course::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
+        $levels = Level::orderBy('name')->get();
+        $title = __('modify book');
+        $btn = __('modify');
+        return view('books.edit', compact('title', 'btn', 'courses', 'book', 'categories', 'levels'));
     }
 
     /**
@@ -96,7 +120,26 @@ class BookController extends Controller implements HasMiddleware
      */
     public function update(UpdateBookRequest $request, Book $book)
     {
-        //
+        $course = Course::find($request->input('course_id'));
+
+        $book->title = $request->input('title');
+        $book->author = $request->input('author');
+        $book->category = $request->input('category');
+        $book->isbn = $request->input('isbn');
+        $book->editorial = $request->input('editorial');
+        $book->quantity = $request->input('quantity');
+        $book->pages = $request->input('pages');
+        $book->status = 1;
+        $book->course = $course->name;
+        $book->level = $request->input('level');
+        $book->grado = $course->grado;
+        $book->grado_id = $course->grado_id;
+        $book->save();
+        $message = __('book added successfully');
+        flash()->options([
+            'timeout' => 500,
+        ])->success($message);
+        return redirect()->route('books.index');
     }
 
     /**
@@ -104,6 +147,11 @@ class BookController extends Controller implements HasMiddleware
      */
     public function destroy(Book $book)
     {
-        //
+        $book->delete();
+        $message = __('book added successfully');
+        flash()->options([
+            'timeout' => 500,
+        ])->success($message);
+        return redirect()->route('books.index');
     }
 }

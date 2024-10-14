@@ -23,12 +23,10 @@ return new class extends Migration {
             $table->string('course')->nullable();
             $table->string('level')->nullable();
             $table->string('grado')->nullable();
-            $table->string('extension')->default('pdf');
-            $table->string('url');
-            $table->unsignedBigInteger('grado_id')->nullable();
-            $table->unsignedBigInteger('lesson_id')->nullable();
+            $table->unsignedBigInteger('grado_id');
+            $table->unsignedBigInteger('sede_id');
             $table->timestamps();
-            $table->foreign('lesson_id')->references('id')->on('lessons')->onDelete('cascade');
+            $table->foreign('grado_id')->references('id')->on('grados')->onDelete('cascade');
         });
     }
 

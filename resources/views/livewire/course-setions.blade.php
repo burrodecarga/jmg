@@ -23,7 +23,8 @@
 
     </form>
     <article class="card">
-        <div class="card-header">{{ __('sections') }} : {{ $sections->count() }}</div>
+        <div class="italic font-bold text-red-600 card-header">{{ __('num of sections') }} : {{ $sections->count() }}
+        </div>
 
         <ul class="p-5 m-0 list-decimal bg-slate-100 ">
 
@@ -49,7 +50,7 @@
                                 {{-- <a href="{{ route('config_lesson', $item) }}">config</a> --}}
                             </div>
                         </header>
-                        <p class="p-3 italic font-semibold text-red-600">
+                        <p class="p-3 mt-2 italic font-semibold text-red-600 bg-white rounded">
                             {{ __('num of lessons') . ' : ' . $item->lessons()->count() }}</p>
                     </div>
                 </article>

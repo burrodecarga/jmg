@@ -54,7 +54,7 @@ class Sede extends Model
 
     public function grados()
     {
-     return $this->belongsToMany(Grado::class)->withPivot('numero','letra')->orderby('grado_id');
+        return $this->belongsToMany(Grado::class)->withPivot('numero', 'letra')->orderby('grado_id');
     }
 
     public function coordinadores()
@@ -67,8 +67,9 @@ class Sede extends Model
         return $this->belongsToMany(Teacher::class);
     }
 
-    public function students(){
-        return $this->hasMany(User::class,'user_id');
+    public function students()
+    {
+        return $this->hasMany(User::class, 'user_id');
     }
 
 
