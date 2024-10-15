@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/dataTables.dataTables.css') }}">
     <x-slot name="header">
         <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
             <div class="info">

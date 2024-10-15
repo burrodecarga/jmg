@@ -279,7 +279,7 @@
     "instructions": "instrucciones",
     "add": "agregar",
     "close": "cerrar",
-    "save": "salvar",
+    "save": "guardar",
     "name of vaccine": "nombre de la vacuna",
     "vaccines history": "historial de vacunas",
     "allergy history": "historial de alergias",
@@ -356,5 +356,9 @@
     "num of lessons": "número de lecciones",
     "num of sections": "número de temas",
     "add resources": "agregar recursos",
-    "edit lesson": "modificar lección"
+    "edit lesson": "modificar lección",
+    "Current Password": "contrasela actual",
+    "New Password": "nueva contraseña",
+    "Whoops! Something went wrong.": "algo salió mal",
+    "list of courses by grado": "listado de materias por grado"
 }

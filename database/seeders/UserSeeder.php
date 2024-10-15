@@ -27,7 +27,7 @@ class UserSeeder extends Seeder
         ])->roles()->sync('1');
 
 
-        $admin= User::create([
+        $admin = User::create([
             'name' => 'Edwin Henriquez',
             'rol' => 'administrator',
             'email' => 'ed@gmail.com',
@@ -117,6 +117,15 @@ class UserSeeder extends Seeder
             $user->rol = 'administrator';
             $user->cedula = $user->id;
             $user->email = 'administrator' . $count . '@gmail.com';
+            $user->password = bcrypt('123');
+            $user->save();
+        });
+
+        User::factory(20)->create()->each(function ($user, $count) {
+            $user->assignRole('teacher');
+            $user->rol = 'teacher';
+            $user->cedula = $user->id;
+            $user->email = 'teacher' . $count . '@gmail.com';
             $user->password = bcrypt('123');
             $user->save();
         });

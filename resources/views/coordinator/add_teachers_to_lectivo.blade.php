@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
     <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/dataTables.dataTables.css') }}" />
     <x-slot name="header">
         <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
             <div class="info">
@@ -73,17 +74,9 @@
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
                     <h4>
-                        {{ __('list of sections') }}
+                        {{ __('list of courses by grado') }}
                     </h4>
 
-                    {{-- <a href="{{ route('list_of_course', $sede->id) }}" class="text-white cursor-pointer"
-                        title="{{ __('add teachers') }}">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                    </a> --}}
                 </div>
             </div>
             <div class="card-body">
@@ -96,7 +89,7 @@
                             <th>{{ __('num') }}/{{ __('leter') }}</th>
                             <th>{{ __('course') }}</th>
                             <th>{{ __('teacher') }}</th>
-                            <th>{{ __('action') }}</th>
+                            <th class="text-center">{{ __('action') }}</th>
                         </tr>
                     </thead>
                     <tbody class="text-sm">
@@ -111,7 +104,7 @@
                                     {{ $lectivo->numero }}<br>{{ $lectivo->letra }}</td>
                                 <td width="20%" class="text-sm text-left">{{ $lectivo->course_name }}</td>
                                 <td width="30%" class="text-sm text-left">{{ $lectivo->teacher_name }}</td>
-                                <td class="flex gap-4 mx-auto text-center" width="10%">
+                                <td class="w-full mx-auto text-center" width="">
                                     <a href="{{ route('add_teacher_to_course', $lectivo->id) }}"
                                         title="{{ __('add teacher to courese') . ' ' . $lectivo->course_name }}">
                                         <i class="text-blue-500 icono fa-solid fa-person-chalkboard"></i>
@@ -162,7 +155,7 @@
                         "infoFiltered": ""
                     },
                     "columnDefs": [{
-                        "targets": [5],
+                        "targets": [6],
                         "orderable": false
                     }]
                 });
