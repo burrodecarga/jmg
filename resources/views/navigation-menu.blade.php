@@ -12,6 +12,11 @@
             'route' => route('coordinators.index'),
             'active' => request()->routeIs('coordinators.index'),
         ],
+        [
+            'name' => 'teachers',
+            'route' => route('teachers.index'),
+            'active' => request()->routeIs('teachers.index'),
+        ],
     ];
 @endphp
 

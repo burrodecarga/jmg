@@ -102,6 +102,15 @@ class PermisionSeeder extends Seeder
         Permission::create(['name' => 'books.destroy', 'privilege' => 'book delete']);
         Permission::create(['name' => 'books.show', 'privilege' => 'book view']);
 
+        Permission::create(['name' => 'teachers.index', 'privilege' => 'teacher list']);
+        Permission::create(['name' => 'teachers.create', 'privilege' => 'teacher create']);
+        Permission::create(['name' => 'teachers.store', 'privilege' => 'teacher create']);
+        Permission::create(['name' => 'teachers.edit', 'privilege' => 'teacher edit']);
+        Permission::create(['name' => 'teachers.update', 'privilege' => 'teacher edit']);
+        Permission::create(['name' => 'teachers.destroy', 'privilege' => 'teacher delete']);
+        Permission::create(['name' => 'teachers.show', 'privilege' => 'teacher view']);
+
+
         Permission::create(['name' => 'padres.index', 'privilege' => 'padre list']);
         Permission::create(['name' => 'padres.create', 'privilege' => 'padre create']);
         Permission::create(['name' => 'padres.store', 'privilege' => 'padre create']);
@@ -120,24 +129,20 @@ class PermisionSeeder extends Seeder
 
         $super_admin_permissions = [1, 2, 3, 4, 5, 6, 7, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59];
         //$super_admin_permissions=[];
-        $coordinator_permissions = [8,9,10,11,12,13,14,57,58,58,60,61,62,63];
+        $coordinator_permissions = [8, 9, 10, 11, 12, 13, 14, 57, 58, 58, 60, 61, 62, 63];
+        $teacher_permissions = [64, 65, 66, 67, 68, 69, 70];
         $admin_permissions = [2, 44, 45, 46, 47, 48, 49, 50];
         $parent_permissions = [];
         $superAdmin = Role::findByName('super-admin');
         $coordinator = Role::findByName('coordinator');
         $admin = Role::findByName('administrator');
         $parent = Role::findByName('parent');
+        $teacher = Role::findByName('teacher');
         $superAdmin->givePermissionTo($super_admin_permissions);
         $coordinator->givePermissionTo($coordinator_permissions);
         $admin->givePermissionTo($admin_permissions);
+        $teacher->givePermissionTo($teacher_permissions);
         $parent->givePermissionTo($parent_permissions);
-        //$superAdmin->syncPermissions($permissions);
-        //$this->command->info('XXXXX' . $admin->permissions->pluck('id'));
-        // //asignacion de permisos de doctor de
-        // $permissions = [16,17,18,19,20,21,22,23,24,25,26,27,28,29,30];
-        // $doctor = Role::findByName('doctor');
-        // $superAdmin->givePermissionTo($permissions);
-        // $doctor->givePermissionTo($permissions);
 
     }
 }

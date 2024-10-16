@@ -13,7 +13,11 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teacher = Teacher::where('user_id', auth()->user()->id)->first();
+        //dd($teacher);
+        $sedes = $teacher->sedes;
+        $courses = [];
+        return view('teachers.index', compact('teacher', 'sedes', 'courses')); //
     }
 
     /**

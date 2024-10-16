@@ -15,6 +15,7 @@ use App\Http\Controllers\GradoController;
 use App\Http\Controllers\BookController;
 
 Route::get('/', function () {
+
     return view('welcome');
 });
 

@@ -17,7 +17,7 @@
                     </span>
                     <div class="py-4">
                         <span class="mb-2 text-md">Email</span>
-                        <x-input id="email" type="email" name="email" :value="old('email', 'coordinator1@gmail.com')" required autofocus
+                        <x-input id="email" type="email" name="email" :value="old('email', 'teacher1@gmail.com')" required autofocus
                             autocomplete="username"
                             class="w-full p-2 border border-gray-300 rounded-md placeholder:font-light placeholder:text-gray-500"
                             name="email" id="email" />

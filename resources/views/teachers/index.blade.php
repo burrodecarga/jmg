@@ -1,11 +1,11 @@
-<x-app-layout>
+<x-teacher-layout>
     <x-slot name="header">
         <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
             <div class="info">
                 <h2 class="text-sm font-semibold leading-tight text-gray-800 uppercase">
                     {{ __('administration panel') }} :
                     <span class="ml-2 uppercase">
-                        {{ auth()->user()->name }}
+                        {{ $teacher->name }}
                     </span>
                 </h2>
                 <h2 class="text-sm font-semibold leading-tight text-gray-800">
@@ -14,13 +14,18 @@
                         class="ml-2 uppercase"></span>{{ auth()->user()->roles->first()->name ?? 'No tiene rol asignado' }}
                 </h2>
                 <h2 class="text-sm font-semibold leading-tight text-gray-800">
-                    Coordinador:
-                    <span class="text-xs uppercase">
-                        {{ auth()->user()->coordina->first()->name ?? 'No es Coordinador de Sede' }}
-                    </span>
+                    Sedes:
+                    @forelse ($teacher->sedes as $sede)
+                        <span class="text-xs uppercase">
+                            Profesor
+                        </span>
+                    @empty
+                        <span class="text-xs uppercase">
+                            No Está registrado en ninguna sede como profesor </span>
+                    @endforelse
                 </h2>
             </div>
-            <div class="info">
+            {{-- <div class="info">
                 <h2 class="text-sm font-semibold leading-tight text-gray-800 uppercase">
                     {{ __('school info') }} :
                 </h2>
@@ -60,20 +65,9 @@
                         </span>
                     </span>
                 </h2>
-            </div>
+            </div> --}}
         </div>
     </x-slot>
 
-    <div class="grid justify-between grid-cols-1 gap-1 mx-auto md:grid-cols-1">
-        <div class="flex-1 py-6">
-            <div class="max-w-md min-h-screen mx-auto sm:px-1 lg:px-2">
-                <div class="h-64 overflow-hidden bg-white shadow-xl sm:rounded-lg">
-                    <div class="w-full">
-                        @livewire('add-lectivo-to-sede', compact('sede'))
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+</x-teacher-layout>
