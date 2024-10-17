@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Teacher;
-use App\Http\Requests\StoreTeacherRequest;
+use App\Models\Lectivo;
+use App\Models\Course;
 use App\Http\Requests\UpdateTeacherRequest;
+use App\Http\Requests\StoreTeacherRequest;
 
 class TeacherController extends Controller
 {
@@ -14,9 +16,9 @@ class TeacherController extends Controller
     public function index()
     {
         $teacher = Teacher::where('user_id', auth()->user()->id)->first();
-        //dd($teacher);
         $sedes = $teacher->sedes;
-        $courses = [];
+        $courses = Lectivo::where('teacher_id', $teacher->user_id)->get();
+        //dd($courses);
         return view('teachers.index', compact('teacher', 'sedes', 'courses')); //
     }
 
@@ -39,9 +41,10 @@ class TeacherController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Teacher $teacher)
+    public function show(Course $course)
     {
-        //
+        //$course = Lectivo::where('teacher_id', $teacher->user_id)->first();
+        return view('teachers.show', compact('course'));
     }
 
     /**

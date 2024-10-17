@@ -26,7 +26,7 @@ class Lectivo extends Model
         'level',
         'numero',
         'letra'
-            ];
+    ];
 
     protected $dates = [
         'created_at',
@@ -36,12 +36,25 @@ class Lectivo extends Model
         // your other new column
     ];
 
-    public function getFullNameAttribute()
+    public function getFullCourseNameAttribute()
     {
-        return "{$this['name']} {$this['level']}";
+        return "{$this['course_name']} {$this['level']}";
     }
 
-    public function cursos(){
-        return $this->hasMany(Course::class,'course_id');
+    public function getFullNameAttribute()
+    {
+        return "{$this['course_name']} {$this['grado_name']} - seccion: {$this['letra']}";
+    }
+
+
+    public function getFullSedeIdAttribute()
+    {
+        $sede = Sede::find($this->sede_id);
+        return $sede->name;
+    }
+
+    public function cursos()
+    {
+        return $this->hasMany(Course::class, 'course_id');
     }
 }

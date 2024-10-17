@@ -105,16 +105,16 @@ class User extends Authenticatable
     public function is_minor()
     {
         $edad = Carbon::parse($this->attributes['birthdate'])->age;
-        return $edad > Self::MENOR;
+        return $edad > self::MENOR;
     }
 
     public function role_type()
     {
         $edad = Carbon::parse($this->attributes['birthdate'])->age;
 
-        if ($edad <= Self::MENOR) {
+        if ($edad <= self::MENOR) {
             $role = 'student-basic';
-        } elseif ($edad > Self::MENOR and $edad <= Self::MEDIO) {
+        } elseif ($edad > self::MENOR and $edad <= self::MEDIO) {
             $role = 'student-basic';
         } else {
             $role = 'student-high';
@@ -143,6 +143,11 @@ class User extends Authenticatable
     public function estudia_en()
     {
         return $this->belongsTo(Sede::class, 'sede_id');
+    }
+
+    public function es_profesor()
+    {
+        return $this->hasOne(Teacher::class, 'user_id');
     }
 
 

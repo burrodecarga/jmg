@@ -1,6 +1,6 @@
 <x-teacher-layout>
     <x-slot name="header">
-        <div class="grid grid-cols-1 gap-2 md:grid-cols-3">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-1">
             <div class="info">
                 <h2 class="text-sm font-semibold leading-tight text-gray-800 uppercase">
                     {{ __('administration panel') }} :
@@ -14,16 +14,37 @@
                         class="ml-2 uppercase"></span>{{ auth()->user()->roles->first()->name ?? 'No tiene rol asignado' }}
                 </h2>
                 <h2 class="text-sm font-semibold leading-tight text-gray-800">
-                    Sedes:
-                    @forelse ($teacher->sedes as $sede)
-                        <span class="text-xs uppercase">
-                            Profesor
-                        </span>
+                    Sedes:</h2>
+                @forelse ($sedes as $sede)
+                    <span class="inline-block text-xs uppercase">
+                        {{ $sede->name }}
+                    </span>
+                @empty
+                    <span class="text-xs uppercase">
+                        No Está registrado en ninguna sede como profesor </span>
+                @endforelse
+
+                <h2 class="text-sm font-semibold leading-tight text-gray-800">
+                    Courses:</h2>
+                <div class="grid grid-cols-2 gap-2">
+
+                    @forelse ($courses as $course)
+                        <div class="text-xs uppercase bg-slate-300 px-3 py-1.5">
+                            <a href="{{ route('teachers.show', $course) }}">
+                                <p> {{ $course->full_sede_id }}</p>
+                                <p> {{ $course->full_name }}</p>
+                            </a>
+
+
+
+                        </div>
+
                     @empty
                         <span class="text-xs uppercase">
                             No Está registrado en ninguna sede como profesor </span>
                     @endforelse
-                </h2>
+                </div>
+
             </div>
             {{-- <div class="info">
                 <h2 class="text-sm font-semibold leading-tight text-gray-800 uppercase">
