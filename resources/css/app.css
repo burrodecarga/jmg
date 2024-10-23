@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 /* @import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities'; */
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
 
+@layer components {
+	@import "common.css";
+	@import "button.css";
+	@import "page.css";
+}
 
 [x-cloak] {
-    display: none;
+	display: none;
 }

@@ -7,8 +7,15 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use DragonCode\Support\Facades\Helpers\Str;
 use App\Models\Sede;
+use App\Models\Section;
+use App\Models\Requeriment;
+use App\Models\Lesson;
+use App\Models\Image;
 use App\Models\Grado;
+use App\Models\Goal;
+use App\Models\Description;
 use App\Models\Course;
+use App\Models\Audience;
 
 class CourseSeeder extends Seeder
 {
@@ -35,5 +42,46 @@ class CourseSeeder extends Seeder
 
         $sede = Sede::inRandomOrder()->first();
         $sede->coordinadores()->sync([3 => ['rol' => 'coordinator']]);
+
+
+
+
+        $courses = Course::all();
+        foreach ($courses as $c) {
+            Image::factory(1)->create([
+                'imageable_id' => $c->id,
+                'imageable_type' => 'App\Models\Course'
+            ]);
+            Requeriment::factory(4)->create([
+                'course_id' => $c->id
+            ]);
+            Goal::factory(4)->create([
+                'course_id' => $c->id
+            ]);
+
+            $sections = Section::factory(4)->create([
+                'course_id' => $c->id
+            ]);
+
+            Audience::factory(4)->create([
+                'course_id' => $c->id
+            ]);
+
+            foreach ($sections as $s) {
+                $lessons = Lesson::factory(5)->create([
+                    'section_id' => $s->id
+                ]);
+            }
+
+            foreach ($lessons as $l) {
+                Description::factory()->create([
+                    'lesson_id' => $l->id
+                ]);
+            }
+
+
+
+
+        }
     }
 }

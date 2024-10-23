@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Models\User;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -18,7 +22,7 @@ class UserController extends Controller
         $computer_user = auth()->user();
         $computer_user_role_name = $computer_user->roles->pluck("name")->first();
         $computer_user_role_id = $computer_user->roles->pluck("id")->first();
-        $role=$user->roles->first();
+        $role = $user->roles->first();
         if ($role->id < EDIT_ROLE_ORIGINAL) {
             return redirect()->route('users.index')->with('success', 'Operación no permitida');
         }
@@ -34,13 +38,14 @@ class UserController extends Controller
         return view('super.users.edit', compact('user', 'title', 'btn', 'roles', 'userRoleId'));
     }
 
-    public function update(Request $request, user $user)
+    public function update(UserUpdateRequest $request, user $user)
     {
         $role = $request->input('role');
         $user->roles()->sync($role);
-        $user->rol=$role;
+        $user->rol = $role;
         $user->save();
-        return redirect()->route('users.index')->with('success','Registro actualizado correctamente');;
+        return redirect()->route('users.index')->with('success', 'Registro actualizado correctamente');
+        ;
     }
 
     public function getPermissionOfRole($id)
@@ -66,7 +71,7 @@ class UserController extends Controller
     }
 
 
-    public function updateUser(userUpdateRequest $request, $id)
+    public function updateUser(UserUpdateRequest $request, $id)
     {
         $user = User::find($id);
         $data = $request->only('name', 'email', 'address', 'phone', 'movil', 'avatar', 'plus', 'card_id', 'password');
@@ -84,12 +89,12 @@ class UserController extends Controller
             $user->fill(['password' => $secret])->save();
         }
         $filename = $user->avatar;
-       //dd($filename);
+        //dd($filename);
         if ($request->file('avatar')) {
             $file = $request->file('avatar');
             $extension = $request->file('avatar')->extension();
             $avatar = 'user' . time() . '.' . $extension;
-            if ($filename <> 'avatar.jpg' && $filename<>null) {
+            if ($filename <> 'avatar.jpg' && $filename <> null) {
                 $avatar_path = "app/avatars/" . $filename;
                 if (File::exists($avatar_path)) {
                     unlink($avatar_path);
@@ -104,7 +109,8 @@ class UserController extends Controller
         return redirect()->route('home')->with('success', 'user ' . $user->name . ' actualizado exitosamente');
     }
 
-    public function create(){
+    public function create()
+    {
         return view('super.users.create');
     }
 

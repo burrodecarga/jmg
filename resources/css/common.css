@@ -1,0 +1,63 @@
+.container {
+	@apply max-w-7xl mx-auto py-3 bg-white;
+}
+
+.container80 {
+	max-width: 64rem;
+	margin: auto;
+	background-color: white;
+	padding: 1.75rem;
+}
+
+.container60 {
+	max-width: 32rem;
+	margin: auto;
+	background-color: white;
+	padding: 1.75rem;
+}
+
+.container40 {
+	max-width: 24rem;
+	margin: auto;
+	background-color: white;
+	padding: 1.75rem;
+}
+
+@media (min-width: 640) {
+	.container {
+		@apply px-6;
+	}
+}
+
+@media (min-width: 1024) {
+	.container {
+		@apply px-8;
+	}
+}
+
+.card {
+	@apply bg-white shadow-sm rounded-lg overflow-hidden;
+}
+
+.card-body {
+	@apply px-6 py-4;
+}
+
+.card-title {
+	@apply text-center text-gray-700 text-lg mb-2 leading-6;
+}
+
+.embed-responsive {
+	position: relative;
+	overflow: hidden;
+	padding-top: 56.25%;
+}
+
+.embed-responsive iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	border: 0;
+}

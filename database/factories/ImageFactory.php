@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Lesson>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Image>
  */
-class LessonFactory extends Factory
+class ImageFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -16,10 +16,10 @@ class LessonFactory extends Factory
      */
     public function definition(): array
     {
-        $title = $this->faker->sentence(6);
         return [
-            'name' => $title,
+            'name' => $this->faker->sentence(),
             'description' => $this->faker->paragraph(),
+            'url' => 'cursos/' . $this->faker->image('public/storage/cursos', 640, 480, null, false),
         ];
     }
 }

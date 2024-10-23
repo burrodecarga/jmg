@@ -1,7 +1,7 @@
 <x-teacher-layout>
     <x-slot name="header">
-        <div class="grid grid-cols-1 gap-2 md:grid-cols-1">
-            <div class="info">
+        <div class="grid grid-cols-1 gap-2 md:grid-cols-1 min-h-svh">
+            <div class="p-10 bg-blue-100 rounded-md">
                 <h2 class="text-sm font-semibold leading-tight text-gray-800 uppercase">
                     {{ __('administration panel') }} :
                     <span class="ml-2 uppercase">
@@ -11,37 +11,24 @@
                 <h2 class="text-sm font-semibold leading-tight text-gray-800">
                     Rol:
                     <span
-                        class="ml-2 uppercase"></span>{{ auth()->user()->roles->first()->name ?? 'No tiene rol asignado' }}
+                        class="ml-2 uppercase"></span>{{ __(auth()->user()->roles->first()->name) ?? 'No tiene rol asignado' }}
                 </h2>
-                <h2 class="text-sm font-semibold leading-tight text-gray-800">
-                    Sedes:</h2>
-                @forelse ($sedes as $sede)
-                    <span class="inline-block text-xs uppercase">
-                        {{ $sede->name }}
-                    </span>
-                @empty
-                    <span class="text-xs uppercase">
-                        No Está registrado en ninguna sede como profesor </span>
-                @endforelse
 
-                <h2 class="text-sm font-semibold leading-tight text-gray-800">
-                    Courses:</h2>
+
+                <h2 class="text-lg font-semibold leading-tight text-gray-400 uppercase">
+                    {{ __('sedes and courses') }}:</h2>
                 <div class="grid grid-cols-2 gap-2">
 
                     @forelse ($courses as $course)
-                        <div class="text-xs uppercase bg-slate-300 px-3 py-1.5">
-                            <a href="{{ route('teachers.show', $course) }}">
+                        <div class="text-xs uppercase px-3 py-1.5 bg-blue-500 rounded-md text-white">
+                            <a href="{{ route('course', [$teacher->id, $course->id]) }}">
                                 <p> {{ $course->full_sede_id }}</p>
                                 <p> {{ $course->full_name }}</p>
                             </a>
-
-
-
                         </div>
-
                     @empty
                         <span class="text-xs uppercase">
-                            No Está registrado en ninguna sede como profesor </span>
+                            {{ __('He is not registered anywhere as a teacher.') }} </span>
                     @endforelse
                 </div>
 

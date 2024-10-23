@@ -16,9 +16,13 @@ class TeacherController extends Controller
     public function index()
     {
         $teacher = Teacher::where('user_id', auth()->user()->id)->first();
-        $sedes = $teacher->sedes;
+        if ($teacher) {
+            $sedes = $teacher->sedes;
+        } else {
+
+        }
         $courses = Lectivo::where('teacher_id', $teacher->user_id)->get();
-        //dd($courses);
+
         return view('teachers.index', compact('teacher', 'sedes', 'courses')); //
     }
 
@@ -70,4 +74,13 @@ class TeacherController extends Controller
     {
         //
     }
+
+    public function course(Teacher $teacher, Lectivo $lectivo)
+    {
+        $course = Course::find($lectivo->course_id);
+        //dd($course->requeriments);
+
+        return view('teachers.course', compact('teacher', 'course', 'lectivo'));
+    }
+
 }

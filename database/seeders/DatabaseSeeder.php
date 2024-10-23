@@ -34,10 +34,15 @@ class DatabaseSeeder extends Seeder
         $this->call(GradoSeeder::class);
         $this->call(SchoolSeeder::class);
         $this->call(SedeSeeder::class);
+        $this->call(CategorySeeder::class);
         $this->call(CourseSeeder::class);
         $this->call(PlatFormSeeder::class);
         $this->call(TeacherSeeder::class);
         $this->call(LectivoSeeder::class);
+        $this->call(LevelSeeder::class);
+
+
+
 
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }

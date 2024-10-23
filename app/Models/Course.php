@@ -9,31 +9,41 @@ class Course extends Model
 {
     use HasFactory;
 
-    const BORRADOR  = 1;
-    const REVISION  = 2;
+    const BORRADOR = 1;
+    const REVISION = 2;
     const PUBLICADO = 3;
 
 
     protected $guarded = ['id', 'status'];
 
-    public function grado(){
+    public function grado()
+    {
         return $this->belongsTo(Grado::class);
     }
 
     public function lectivos()
     {
-        return $this->belongsToMany(Lectivo::class)->withPivot('teacher','user_id')->orderby('teacher');;
+        return $this->belongsToMany(Lectivo::class)->withPivot('teacher', 'user_id')->orderby('teacher');
+        ;
     }
 
-    public function requeriments(){
+    public function requeriments()
+    {
         return $this->hasMany(Requeriment::class);
     }
 
-    public function goals(){
+    public function goals()
+    {
         return $this->hasMany(Goal::class);
     }
 
-    public function sections(){
+    public function level()
+    {
+        return $this->hasOne(Level::class);
+    }
+
+    public function sections()
+    {
         return $this->hasMany(Section::class);
     }
 

@@ -363,6 +363,7 @@
     "Whoops! Something went wrong.": "algo salió mal",
     "list of courses by grado": "listado de materias por grado",
     "teachers": "profesores",
+    "teacher": "profesor",
     "coordinator": "coordinador",
     "Welcome back": "Bienvenido Nuevamente",
     "Welcom back! Please enter your details": "Bienvenido de nuevo, por favor ingrese sus datos",
@@ -372,5 +373,8 @@
     "Dont'have an account?": "No está registrado?",
     "Sign up for free": "Regístrese aquí",
     "I agree to the :terms_of_service and :privacy_policy": "acepto términos y condiciones de la empresa",
-    "I already have an account": "Ya tengo una cuenta"
+    "I already have an account": "Ya tengo una cuenta",
+    "He is not registered anywhere as a teacher.": "no está registrado en ninguna sede como profesor.",
+    "sedes and courses": "colegios y materias",
+    "administration panel": "panel de administración de"
 }
