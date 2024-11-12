@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controllers\HasMiddleware;
-use Illuminate\Routing\Controllers\Middleware;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Gate;
-use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
+use App\Models\User;
 
-class RoleController extends Controller  implements HasMiddleware
+class RoleController extends Controller implements HasMiddleware
 {
 
-    public function __construct() {}
+    public function __construct()
+    {
+    }
 
     public static function middleware(): array
     {
@@ -37,7 +40,7 @@ class RoleController extends Controller  implements HasMiddleware
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
         $roles = Role::all();
         return view('super.roles.index', compact('roles'));
@@ -48,14 +51,15 @@ class RoleController extends Controller  implements HasMiddleware
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(): View
     {
         $permissions = Permission::orderBy('name', 'asc')->get();
         $role = new Role();
         $title = "role create";
         $btn = "create";
+        dd('XXX');
         $permissions_id = [];
-        return view('super.roles.create', compact('permissions', 'role', 'btn', 'permissions_id', 'title'));
+        return view('superadmin.roles.create', compact('permissions', 'role', 'btn', 'permissions_id', 'title'));
     }
 
     /**
@@ -144,7 +148,7 @@ class RoleController extends Controller  implements HasMiddleware
     public function destroy(Role $role)
     {
         $user = auth()->user();
-        $roleName=$user->roles->pluck("name")->first();
+        $roleName = $user->roles->pluck("name")->first();
         if ($role->id < MINIMO_ROLE_ORIGINAL) {
             return redirect()->route('roles.index')->with('success', 'Operación no permitida');
         }

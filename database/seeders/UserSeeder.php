@@ -2,9 +2,11 @@
 
 namespace Database\Seeders;
 
+use App\Models\Lectivo;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+use App\Models\Teacher;
 use App\Models\Sede;
 use App\Models\Office;
 
@@ -128,6 +130,17 @@ class UserSeeder extends Seeder
             $user->email = 'teacher' . $count . '@gmail.com';
             $user->password = bcrypt('123');
             $user->save();
+            // $teacher = Teacher::create([
+            //     'cedula' => $user->cedula,
+            //     'full_name' => $user->name . ' ' . $user->last_name,
+            //     'name' => $user->name,
+            //     'last_name' => $user->last_name,
+            //     'email' => $user->email,
+            // ]);
+            // $sede = Sede::inRandomOrder()->first();
+            // $lectivo = Lectivo::inRandomOrder()->first();
+            // $teacher->sedes()->attach([$sede->id => ['rol' => 'teacher']]);
+            // $lectivo->teacher_id = $teacher->id;
         });
 
 

@@ -32,9 +32,15 @@ class Lectivo extends Model
         'created_at',
         'updated_at',
         'start',
-        'end'
-        // your other new column
+        'end'        // your other new column
     ];
+
+    // protected $casts = [
+    //     'start' => 'date',
+    //     'end' => 'date'
+    // ];
+
+
 
     public function getFullCourseNameAttribute()
     {
@@ -52,6 +58,9 @@ class Lectivo extends Model
         $sede = Sede::find($this->sede_id);
         return $sede->name;
     }
+
+
+
 
     public function cursos()
     {

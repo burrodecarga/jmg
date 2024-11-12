@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\sede;
 use App\Http\Requests\StoresedeRequest;
 use App\Http\Requests\UpdatesedeRequest;
+use App\Http\Controllers\Controller;
 
 class SedeController extends Controller
 {

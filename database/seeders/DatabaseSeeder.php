@@ -29,17 +29,20 @@ class DatabaseSeeder extends Seeder
 
         $this->call(PeriodoSeeder::class);
         $this->call(RoleSeeder::class);
-        $this->call(PermisionSeeder::class);
+        $this->call(PermissionsSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(GradoSeeder::class);
-        $this->call(SchoolSeeder::class);
-        $this->call(SedeSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(CourseSeeder::class);
-        $this->call(PlatFormSeeder::class);
-        $this->call(TeacherSeeder::class);
-        $this->call(LectivoSeeder::class);
-        $this->call(LevelSeeder::class);
+        // $this->call(GradoSeeder::class);
+        // $this->call(SchoolSeeder::class);
+        // $this->call(SedeSeeder::class);
+        // $this->call(CategorySeeder::class);
+        // $this->call(CourseSeeder::class);
+        // $this->call(UtilSeeder::class);
+        // $this->call(UtilCourseSeeder::class);
+        // $this->call(PlatFormSeeder::class);
+        // $this->call(LevelSeeder::class);
+        // $this->call(TeacherSeeder::class);
+        // $this->call(LectivoSeeder::class);
+        // $this->call(ReviewSeeder::class);
 
 
 
@@ -47,3 +50,4 @@ class DatabaseSeeder extends Seeder
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
     }
 }
+

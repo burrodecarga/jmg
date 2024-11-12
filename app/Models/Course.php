@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Review;
 
 class Course extends Model
 {
@@ -15,6 +16,8 @@ class Course extends Model
 
 
     protected $guarded = ['id', 'status'];
+
+    protected $withCount = ['reviews'];
 
     public function grado()
     {
@@ -46,6 +49,9 @@ class Course extends Model
     {
         return $this->hasMany(Section::class);
     }
+
+
+
 
 
 }

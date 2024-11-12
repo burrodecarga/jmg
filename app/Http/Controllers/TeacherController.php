@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Models\Teacher;
 use App\Models\Lectivo;
 use App\Models\Course;
@@ -19,9 +20,16 @@ class TeacherController extends Controller
         if ($teacher) {
             $sedes = $teacher->sedes;
         } else {
+            $message = auth()->user()->name . ' ' . __('is not registered as a teacher');
 
+            flash()->options([
+                'timeout' => 1000,
+            ])->error($message);
+            return redirect()->back();
         }
-        $courses = Lectivo::where('teacher_id', $teacher->user_id)->get();
+        //$courses = Lectivo::where('teacher_id', $teacher->user_id)->get();
+        $courses = DB::table('lectivos')->where('teacher_id', $teacher->user_id)->get();
+        //dd($courses);
 
         return view('teachers.index', compact('teacher', 'sedes', 'courses')); //
     }
@@ -77,7 +85,8 @@ class TeacherController extends Controller
 
     public function course(Teacher $teacher, Lectivo $lectivo)
     {
-        $course = Course::find($lectivo->course_id);
+        $course = DB::table('courses')->where('id', $lectivo->course_id)->first();
+
         //dd($course->requeriments);
 
         return view('teachers.course', compact('teacher', 'course', 'lectivo'));

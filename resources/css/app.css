@@ -2,14 +2,126 @@
 @tailwind components;
 @tailwind utilities;
 
-/* @import 'tailwindcss/base';
-@import "tailwindcss/components";
-@import "tailwindcss/utilities"; */
-
 @layer components {
-	@import "common.css";
-	@import "button.css";
-	@import "page.css";
+	.container {
+		@apply max-w-7xl mx-auto py-3 bg-white;
+	}
+
+	.container80 {
+		max-width: 64rem;
+		margin: auto;
+		background-color: white;
+		padding: 1.75rem;
+	}
+
+	.container60 {
+		max-width: 32rem;
+		margin: auto;
+		background-color: white;
+		padding: 1.75rem;
+	}
+
+	.container40 {
+		max-width: 24rem;
+		margin: auto;
+		background-color: white;
+		padding: 1.75rem;
+	}
+
+	@media (min-width: 640) {
+		.container {
+			@apply px-6;
+		}
+	}
+
+	@media (min-width: 1024) {
+		.container {
+			@apply px-8;
+		}
+	}
+
+	.card {
+		@apply bg-white shadow-sm rounded-lg overflow-hidden;
+	}
+
+	.card-body {
+		@apply px-6 py-4;
+	}
+
+	.card-title {
+		@apply text-center text-gray-700 text-lg mb-2 leading-6;
+	}
+
+	.embed-responsive {
+		position: relative;
+		overflow: hidden;
+		padding-top: 56.25%;
+	}
+
+	.embed-responsive iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border: 0;
+	}
+
+	,
+	.btn-primary {
+		@apply font-bold py-2 px-4 rounded;
+	}
+	.btn-primary {
+		@apply bg-blue-500 text-white;
+	}
+	.btn-primary:hover {
+		@apply bg-blue-700;
+	}
+
+	.btn-danger {
+		@apply font-bold py-2 px-4 rounded;
+	}
+	.btn-danger {
+		@apply bg-red-500 text-white;
+	}
+	.btn-danger:hover {
+		@apply bg-red-700;
+	}
+
+	.btn-success {
+		@apply font-bold py-2 px-4 rounded;
+	}
+	.btn-success {
+		@apply bg-green-500 text-white;
+	}
+	.btn-success:hover {
+		@apply bg-green-700;
+	}
+	,
+    /* purgecss start ignore */
+.livewire-pagination {
+		@apply inline-block w-auto ml-auto float-right;
+	}
+	ul.pagination {
+		@apply flex border border-gray-200 rounded font-mono;
+	}
+	.page-link {
+		@apply block bg-white text-blue-800 border-r border-gray-200 outline-none py-2 w-12 text-sm text-center;
+	}
+	.page-link:last-child {
+		@apply border-0;
+	}
+	.page-link:hover {
+		@apply bg-blue-700 text-white border-blue-700;
+	}
+	.page-item.active .page-link {
+		@apply bg-blue-700 text-white border-blue-700;
+	}
+	.page-item.disabled .page-link {
+		@apply bg-white text-gray-300 border-gray-200;
+	}
+
+	/* purgecss end ignore */
 }
 
 [x-cloak] {

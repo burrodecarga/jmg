@@ -21,9 +21,9 @@
 
                     @forelse ($courses as $course)
                         <div class="text-xs uppercase px-3 py-1.5 bg-blue-500 rounded-md text-white">
-                            <a href="{{ route('course', [$teacher->id, $course->id]) }}">
-                                <p> {{ $course->full_sede_id }}</p>
-                                <p> {{ $course->full_name }}</p>
+                            <a href="#">
+                                <p> {{ $course->course_name }}</p>
+
                             </a>
                         </div>
                     @empty

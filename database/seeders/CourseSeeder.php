@@ -25,11 +25,14 @@ class CourseSeeder extends Seeder
     public function run(): void
     {
         $json = File::get('database/data/materias.json');
+        $description = "Las matemáticas se pueden definir como “la ciencia que estudia las relaciones entre cantidades, magnitudes y propiedades, y las operaciones lógicas mediante las cuales se pueden deducir cantidades, magnitudes y propiedades desconocidas”, en general las propiedades de los números y las relaciones que se establecen entre";
+
+        $sede = Sede::inRandomOrder()->first();
+        $sede->coordinadores()->sync([3 => ['rol' => 'coordinator']]);
+
         $data = json_decode($json);
         foreach ($data as $obj) {
             $grado = Grado::find($obj->id);
-
-
             $curso = new Course();
             $curso->grado = mb_strtolower($obj->grado);
             $curso->name = mb_strtolower($obj->name);
@@ -37,34 +40,29 @@ class CourseSeeder extends Seeder
             $curso->grado_id = mb_strtolower($obj->id);
             $curso->ordinal = $grado->ordinal;
             $curso->level = $grado->level;
+            $curso->description = $description;
             $curso->save();
-        }
-
-        $sede = Sede::inRandomOrder()->first();
-        $sede->coordinadores()->sync([3 => ['rol' => 'coordinator']]);
 
 
 
 
-        $courses = Course::all();
-        foreach ($courses as $c) {
-            Image::factory(1)->create([
-                'imageable_id' => $c->id,
-                'imageable_type' => 'App\Models\Course'
-            ]);
+
+
+
+
             Requeriment::factory(4)->create([
-                'course_id' => $c->id
+                'course_id' => $curso->id
             ]);
             Goal::factory(4)->create([
-                'course_id' => $c->id
+                'course_id' => $curso->id
             ]);
 
             $sections = Section::factory(4)->create([
-                'course_id' => $c->id
+                'course_id' => $curso->id
             ]);
 
             Audience::factory(4)->create([
-                'course_id' => $c->id
+                'course_id' => $curso->id
             ]);
 
             foreach ($sections as $s) {
