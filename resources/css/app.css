@@ -132,6 +132,6 @@
 	width: 80px;
 }
 
-[x-cloak] {
+.dt-len [x-cloak] {
 	display: none;
 }

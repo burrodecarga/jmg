@@ -1,16 +1,15 @@
 <x-admin-layout>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+
     <x-slot name="header">
         <h2 class="w-full text-xl font-semibold capitalize sm:w-full md:w-3/4">{{ __('school adminitration panel') }}
         </h2>
     </x-slot>
 
-    <div class="mt-10">
-        <div class="w-10/12 mx-auto text-center card">
+    <div class="p-10 mt-10">
+        <div class="w-full mx-auto text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
-                    <h4>
+                    <h4 class="text-white">
                         {{ __('list of schools') }}
                     </h4>
 
@@ -30,25 +29,39 @@
                         <tr>
                             <th>{{ __('name') }}</th>
                             <th>{{ __('nit') }}</th>
-                            <th>{{ __('dane') }}</th>
+                            <th style="text-align: justify">{{ __('dane') }}</th>
+                            <th>{{ __('administrator') }}</th>
                             <th class="text-center"> {{ __('action') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($schools as $school)
                             <tr class="odd:bg-slate-100">
-                                <td width="40%" class="text-left">{{ $school->name }}</td>
-                                <td width="20%" class="text-left">{{ $school->nit }}</td>
-                                <td width="20%" class="text-left">{{ $school->dane }}</td>
-                                <td class="flex gap-4 text-center" width="20%">
+                                <td width="30%" class="text-left">{{ $school->name }}</td>
+                                <td width="15%" class="text-left">{{ $school->nit }}</td>
+                                <td width="15%" style="text-align: justify">{{ $school->dane }}</td>
+                                <td width="30%">
+                                    <form action="{{ route('schools.desassign') }}" method="POST"
+                                        class="inline-block form-admin-delete">
+                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                        @csrf
+                                        @method('POST')
+                                        <input type="hidden" name="user_id" value="{{ $school->administrator_id }}">
+                                        <input type="hidden" name="school_id" value="{{ $school->id }}">
+                                        <button type="submit" title="{{ __('delete admin') }}">
+                                            {{ $school->administrator_name }}
+                                        </button>
+                                    </form>
+                                </td>
+                                <td class="grid justify-around grid-cols-1 gap-4 text-center md:grid-cols-3">
                                     <a href="{{ route('schools.show', $school->id) }}"
-                                        title="{{ __('view detail of school') . ' ' . $school->name }}"><i
-                                            class="text-blue-500 icono fa-solid fa-eye"></i></a>
+                                        title="{{ __('view detail of school') . ' ' . $school->name }}"
+                                        class="inline-block"><i class="text-blue-500 icono fa-solid fa-eye"></i></a>
                                     <a href="{{ route('schools.edit', $school->id) }}"
-                                        title="{{ __('edit school') . ' ' . $school->name }}"><i
+                                        title="{{ __('edit school') . ' ' . $school->name }}" class="inline-block"><i
                                             class="text-blue-500 icono fa-solid fa-newspaper"></i></a>
                                     <form action="{{ route('schools.destroy', $school->id) }}" method="POST"
-                                        class="form-delete">
+                                        class="inline-block form-delete">
                                         <meta name="csrf-token" content="{{ csrf_token() }}">
                                         @method('DELETE')
                                         <button type="submit"><i
@@ -58,6 +71,10 @@
                                     <a href="{{ route('schools.sedes.create', $school->id) }}"
                                         title="{{ __('add sede to school') . ' ' . $school->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-code-fork"></i></a>
+                                    <a href="{{ route('schools.administrator', $school->id) }}" class="text-green-600"
+                                        title="{{ __('assign administrator to school') }}">
+                                        <i class="fa-solid fa-user-tie icono"></i>
+                                    </a>
                                 </td>
 
                             </tr>
@@ -70,6 +87,7 @@
     @push('scripts')
         <script>
             $(document).ready(function() {
+
                 $('#school').DataTable({
                     "responsive": true,
                     "pagingType": "full_numbers",
@@ -82,7 +100,7 @@
                             "last": "Último",
                             "first": "Primero",
                         },
-                        "lengthMenu": "Mostrar  <select class='custom-select custom-select-sm'>" +
+                        "lengthMenu": "Mostrar  <select class='rounded custom-select custom-select-sm'>" +
                             "<option value='5'>5</option>" +
                             "<option value='10'>10</option>" +
                             "<option value='15'>15</option>" +
@@ -100,37 +118,64 @@
                         "infoFiltered": ""
                     },
                     "columnDefs": [{
-                        "targets": [3],
+                        "targets": [4],
                         "orderable": false
                     }]
                 });
-            });
+                setTimeout(function() {
+                    $('#alert').remove()
+                }, 3000);
 
-            $('.form-delete').submit(function(e) {
-                e.preventDefault();
+                $('.form-delete').submit(function(e) {
+                    e.preventDefault();
 
-                Swal.fire({
-                    title: 'Está seguro de querer eliminar escuela?',
-                    text: "Esta operación es irreversible",
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Si, Eliminar!'
-                }).then((result) => {
-                    if (result.isConfirmed) {
+                    Swal.fire({
+                        title: 'Está seguro de querer eliminar escuela?',
+                        text: "Esta operación es irreversible",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Eliminar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
 
-                        this.submit();
-                        // Swal.fire(
-                        //   'Deleted!',
-                        //   'Your file has been deleted.',
-                        //   'success'
-                        // )
-                    }
+                            this.submit();
+
+                        }
+                    })
+
+
                 })
 
 
-            })
+                $('.form-admin-delete').submit(function(e) {
+                    e.preventDefault();
+
+                    Swal.fire({
+                        title: 'Está seguro de querer eliminar escuela?',
+                        text: "Esta operación es irreversible",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Si, Eliminar!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+
+                            this.submit();
+
+                        }
+                    })
+
+
+                })
+
+            });
+
+            $(function() {
+                $(document).tooltip();
+            });
         </script>
     @endpush
 </x-admin-layout>

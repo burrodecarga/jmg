@@ -18,6 +18,8 @@ class School extends Model
         'dane',
         'logo',
         'image',
+        'administrator_id',
+        'administrator_name'
     ];
 
     protected $attributes = [

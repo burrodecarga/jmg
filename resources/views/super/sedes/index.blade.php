@@ -1,7 +1,7 @@
 <x-admin-layout>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
-    <link rel="stylesheet" href="{{ asset('css/dataTables.dataTables.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dataTables.dataTables.css') }}"> --}}
     <x-slot name="header">
         <h2 class="w-full text-xl font-semibold capitalize sm:w-full md:w-3/4">{{ __('sedes adminitration panel') }}
         </h2>
@@ -71,7 +71,7 @@
                             "last": "Último",
                             "first": "Primero",
                         },
-                        "lengthMenu": "Mostrar  <select class='custom-select custom-select-sm'>" +
+                        "lengthMenu": "Mostrar  <select class='rounded custom-select custom-select-sm'>" +
                             "<option value='5'>5</option>" +
                             "<option value='10'>10</option>" +
                             "<option value='15'>15</option>" +
@@ -92,6 +92,10 @@
                         "targets": [4],
                         "orderable": false
                     }]
+                });
+
+                $(function() {
+                    $(document).tooltip();
                 });
             });
         </script>

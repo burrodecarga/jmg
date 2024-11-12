@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\School;
-use App\Http\Requests\StoreSchoolRequest;
-use App\Http\Requests\UpdateSchoolRequest;
-use App\Models\Sede;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+use App\Models\User;
+use App\Models\Sede;
+use App\Models\School;
+use App\Http\Requests\UpdateSchoolRequest;
+use App\Http\Requests\StoreSchoolRequest;
 
 class SchoolController extends Controller
 {
@@ -127,5 +129,44 @@ class SchoolController extends Controller
         $sedes = $school->sedes;
 
         return view('super.schools.sede', compact('sedes', 'school'));
+    }
+
+
+
+
+    public function administrator(School $school)
+    {
+        //$users = Role::user('administrator')->get();
+        $users = User::where('rol', 'administrator')->get();
+        //dd($users);
+        return view('super.schools.administrator', compact('school', 'users'));
+    }
+
+    public function assign(Request $request)
+    {
+        $school = School::find($request->school_id);
+        $user = User::find($request->user_id);
+        $school->update([
+
+            'administrator_id' => $user->id,
+            'administrator_name' => $user->name
+        ]);
+        $school->save();
+        $message = 'Usuario asignado como administrador de escuela';
+        return redirect()->route('schools.index')->with('success', $message);
+    }
+
+    public function desassign(Request $request)
+    {
+        $school = School::find($request->school_id);
+        $user = User::find($request->user_id);
+        $school->update([
+            'administrator_id' => null,
+            'administrator_name' => null,
+        ]);
+        $school->save();
+        $message = 'Usuario eliminado como administrador de escuela';
+        return redirect()->route('schools.index')->with('success', $message);
+
     }
 }

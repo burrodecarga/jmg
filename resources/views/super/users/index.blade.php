@@ -1,6 +1,6 @@
 <x-admin-layout>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css"> --}}
 
     <x-slot name="header">
         <h2 class="w-full text-xl font-semibold sm:w-full md:w-3/4">{{ __('user Adminitration Panel') }}</h2>
@@ -10,12 +10,11 @@
         <div class="w-full mx-auto text-center card md:w-100">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
-                    <h4>
+                    <h4 class="text-white">
                         {{ __('list of users') }}
                     </h4>
 
-                    <a href="{{ route('users.create') }}" class="text-white cursor-pointer"
-                        title="{{ __('add user') }}">
+                    <a href="{{ route('users.create') }}" class="text-white cursor-pointer" title="{{ __('add user') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -28,13 +27,12 @@
                 <table id="user" class="table text-sm table-hover" style="width:100%">
                     <thead>
                         <tr>
-                            <th width="10%">Id</th>
-                            <th width="25%">Name</th>
-                            <th width="25%">Email</th>
-                            {{-- <th width="30%">Address</th> --}}
-                            <th width="15%">Phone</th>
-                            <th width="10%">Role</th>
-                            <th width="15%">actions</th>
+                            <th width="10%">{{ __('id') }}</th>
+                            <th width="25%">{{ __('name') }}</th>
+                            <th width="25%">{{ __('email') }}</th>
+                            <th width="15%">{{ __('phone') }}</th>
+                            <th width="10%">{{ __('role') }}</th>
+                            <th width="15%">{{ __('actions') }}</th>
                         </tr>
                     </thead>
                     <tbody class="text-left">
@@ -61,8 +59,19 @@
                         "orderable": false,
                         "searchable": false
 
-
                     }],
+                    language: {
+                        info: 'página _PAGE_ de _PAGES_',
+                        infoEmpty: 'No hay regiastros diponibles',
+                        infoFiltered: '(filtro de _MAX_ total)',
+                        lengthMenu: '_MENU_ registros/pag.',
+                        zeroRecords: 'No hay registros',
+                        search: "Buscar ",
+                        paginate: {
+                            previous: 'prev',
+                            next: 'sig'
+                        }
+                    },
                     "serverSide": true,
                     "ajax": "{{ url('api/users') }}",
                     "columns": [{
@@ -119,7 +128,12 @@
                     })
 
 
+
+
                 })
+                $(function() {
+                    $(document).tooltip();
+                });
 
             });
         </script>

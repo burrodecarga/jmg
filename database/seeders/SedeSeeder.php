@@ -25,6 +25,7 @@ class SedeSeeder extends Seeder
             //dd($user);
             $sede = new Sede();
             $sede->name = mb_strtolower($obj->name);
+            $sede->school = mb_strtolower($obj->name);
             $sede->slug = Str::slug($obj->name);
             $sede->nit = mb_strtolower($obj->nit);
             $sede->dane = mb_strtolower($obj->dane);

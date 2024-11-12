@@ -27,3 +27,15 @@ Route::get('/schools/sedes/grados_create/{id}', [SchoolSedeController::class, 'g
 Route::post('/schools/sedes/grados_store', [SchoolSedeController::class, 'grados_store'])->name('schools.sedes.grados_store');
 
 Route::get('rooms/create_resource/{id}', [RoomController::class, 'create_resource'])->name('rooms.create_resource');
+
+///Rutas Particulares School
+
+Route::get('administrator/{school}', [SchoolController::class, 'administrator'])->name('schools.administrator');
+
+Route::post('administrator/assign', [SchoolController::class, 'assign'])->name('schools.assign');
+
+Route::post('administrator/desassign', [SchoolController::class, 'desassign'])->name('schools.desassign');
+
+Route::get('coordinator/{sede}', [SedeController::class, 'coordinator'])->name('sedes.coordinator');
+
+Route::post('assign', [SedeController::class, 'assign'])->name('sedes.assign');
