@@ -24,6 +24,8 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('css/dataTables.min.css') }}" />
     <link rel="stylesheet" href="{{ asset('css/responsive.dataTables.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap5.min.css') }}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
 </head>
 
@@ -56,6 +58,7 @@
     <script type="text/javascript" src="{{ asset('js/jquery-3.5.1.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('js/dataTables.responsive.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/dataTables.bootstrap5.min.js') }}"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     @stack('scripts')

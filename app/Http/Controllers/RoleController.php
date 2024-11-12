@@ -57,9 +57,8 @@ class RoleController extends Controller implements HasMiddleware
         $role = new Role();
         $title = "role create";
         $btn = "create";
-        dd('XXX');
         $permissions_id = [];
-        return view('superadmin.roles.create', compact('permissions', 'role', 'btn', 'permissions_id', 'title'));
+        return view('super.roles.create', compact('permissions', 'role', 'btn', 'permissions_id', 'title'));
     }
 
     /**

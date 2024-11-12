@@ -124,6 +124,14 @@
 	/* purgecss end ignore */
 }
 
+.icono {
+	@apply outline outline-offset-2 outline-1 hover:outline-2 p-2 rounded-lg;
+}
+
+.dt-container select.dt-input {
+	width: 80px;
+}
+
 [x-cloak] {
 	display: none;
 }

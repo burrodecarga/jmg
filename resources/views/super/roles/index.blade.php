@@ -1,20 +1,17 @@
 <x-admin-layout>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
     <x-slot name="header">
-        <h2 class="w-full text-xl font-semibold sm:w-full md:w-3/4">{{ __('Role Adminitration Panel') }}</h2>
+        <h2 class="w-full text-xl font-semibold sm:w-full md:w-3/4">{{ __('role adminitration panel') }}</h2>
     </x-slot>
 
-    <div class="container mt-10">
+    <div class="mt-10">
         <div class="w-full mx-auto text-center card md:w-1/2 min-w-12">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
-                    <h4>
+                    <h4 class="text-white">
                         {{ __('list of roles') }}
                     </h4>
 
-                    <a href="{{ route('roles.create') }}" class="text-white cursor-pointer"
-                        title="{{ __('add role') }}">
+                    <a href="{{ route('roles.create') }}" class="text-white cursor-pointer" title="{{ __('add role') }}">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -27,32 +24,22 @@
                 <table id="role" class="table table-hover" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>actions</th>
+                            <th style="text-align: center">{{ __('id') }}</th>
+                            <th style="text-align: center">{{ __('name') }}</th>
+                            <th style="text-align: center">{{ __('actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach ($roles as $role)
                             <tr>
-                                <td width="20%">{{ $role->id }}</td>
+                                <td width="10%">{{ $role->id }}</td>
                                 <td width="60%">{{ $role->name }}</td>
-                                <td width="20%" class="flex justify-between w-full mx-auto text-center">
+                                <td width="30%" class="flex justify-around w-full mx-auto text-center">
                                     <a href="{{ route('roles.show', $role->id) }}" class="text-green-600">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                        </svg>
+                                        <i class="fa-solid icono fa-eye"></i>
                                     </a>
                                     <a href="{{ route('roles.edit', $role->id) }}">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                        </svg>
+                                        <i class="fa-solid icono fa-pencil"></i>
                                     </a>
 
                                     <form action="{{ route('roles.destroy', $role->id) }}" method="POST"
@@ -60,13 +47,7 @@
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                    d="M12 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2M3 12l6.414 6.414a2 2 0 001.414.586H19a2 2 0 002-2V7a2 2 0 00-2-2h-8.172a2 2 0 00-1.414.586L3 12z" />
-                                            </svg>
-                                        </button>
-
+                                            <i class="fa-solid icono fa-trash"></i> </button>
                                     </form>
                                 </td>
                             </tr>
@@ -83,9 +64,9 @@
 
 
     @push('script')
-        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        {{-- <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
         <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script>
+        <script src="https://cdn.datatables.net/1.11.4/js/dataTables.bootstrap5.min.js"></script> --}}
 
 
 
@@ -95,9 +76,24 @@
                     "columnDefs": [{
                         "targets": [2],
                         "orderable": false
-                    }]
+                    }],
+                    language: {
+                        info: 'página _PAGE_ de _PAGES_',
+                        infoEmpty: 'No hay regiastros diponibles',
+                        infoFiltered: '(filtro de _MAX_ total)',
+                        lengthMenu: '_MENU_ registros/pag.',
+                        zeroRecords: 'No hay registros',
+                        search: "Buscar ",
+                        paginate: {
+                            previous: 'prev',
+                            next: 'sig'
+                        }
+                    }
+
 
                 });
+
+
                 setTimeout(function() {
                     $('#alert').remove()
                 }, 300);
@@ -106,10 +102,9 @@
                 $('.form-delete').submit(function(e) {
 
                     e.preventDefault();
-                    alert('XXX');
 
                     Swal.fire({
-                        title: 'Está seguro de querer eliminar escuela?',
+                        title: 'Está seguro de querer eliminar Role?',
                         text: "Esta operación es irreversible",
                         icon: 'warning',
                         showCancelButton: true,
@@ -120,11 +115,7 @@
                         if (result.isConfirmed) {
 
                             this.submit();
-                            // Swal.fire(
-                            //   'Deleted!',
-                            //   'Your file has been deleted.',
-                            //   'success'
-                            // )
+
                         }
                     })
                 });
