@@ -2,23 +2,21 @@
 
 namespace App\Livewire;
 
+use Livewire\Component;
 use App\Models\Sede;
 use App\Models\User;
-use Livewire\Component;
 
-use function Laravel\Prompts\alert;
 
-class AddManagerToSede extends Component
+class AddCoordinatorToSede extends Component
 {
-
     public $cedula;
     public $user;
     public $sede;
-    public $managers = [];
+    public $coordinators = [];
 
     public function mount(Sede $sede)
     {
-        $this->managers = $sede->coordinadores;
+        $this->coordinators = $sede->coordinadores;
         $this->sede = $sede;
     }
 
@@ -27,24 +25,25 @@ class AddManagerToSede extends Component
 
     ];
 
+
     public function render()
     {
-        return view('livewire.add-manager-to-sede');
+        return view('livewire.add-coordinator-to-sede');
     }
 
-    public function addManager()
+    public function addCoordinator()
     {
         $this->validate();
         //$this->reset();
         $this->user = User::where('cedula', $this->cedula)->first();
         if ($this->user) {
-            $this->user->coordina()->sync([$this->sede->id => ['rol' => 'manager']]);
+            $this->user->coordina()->sync([$this->sede->id => ['rol' => 'coordinator']]);
             $this->sede = $this->sede->refresh();
-            $this->managers = $this->sede->coordinadores;
+            $this->coordinators = $this->sede->coordinadores;
             $this->reset('cedula');
             $this->cedula = null;
-            $this->user->assignRole('manager');
-            $this->user->rol = 'admin';
+            $this->user->assignRole('coordinator');
+            $this->user->rol = 'coordinator';
             $this->user->save();
             $this->render();
         } else {
@@ -53,15 +52,15 @@ class AddManagerToSede extends Component
         return true;
     }
 
-    public function delManager()
+    public function delCoordinator()
     {
         $this->validate();
         $this->user = User::where('cedula', $this->cedula)->first();
         if ($this->user) {
             $this->user->coordina()->detach([$this->sede->id]);
-            $this->managers = $this->user->sedes;
+            $this->coordinators = $this->user->sedes;
             $this->sede = $this->sede->refresh();
-            $this->managers = $this->sede->coordinadores;
+            $this->coordinators = $this->sede->coordinadores;
             $this->cedula = 33;
             $this->reset('cedula');
             $this->user->roles()->detach();

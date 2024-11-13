@@ -27,10 +27,10 @@
                 <table id="school" class="table text-sm table-hover" style="width:100%">
                     <thead>
                         <tr>
-                            <th>{{ __('name') }}</th>
-                            <th>{{ __('nit') }}</th>
-                            <th style="text-align: justify">{{ __('dane') }}</th>
-                            <th>{{ __('administrator') }}</th>
+                            <th width="30%">{{ __('name') }}</th>
+                            <th width="15%">{{ __('nit') }}</th>
+                            <th width="15%" style="text-align: justify">{{ __('dane') }}</th>
+                            <th width="25%">{{ __('administrator') }}</th>
                             <th class="text-center"> {{ __('action') }}</th>
                         </tr>
                     </thead>
@@ -53,24 +53,26 @@
                                         </button>
                                     </form>
                                 </td>
-                                <td class="grid justify-around grid-cols-1 gap-4 text-center md:grid-cols-3">
+                                <td class="grid justify-around grid-cols-1 gap-2 text-center md:grid-cols-3" w>
                                     <a href="{{ route('schools.show', $school->id) }}"
                                         title="{{ __('view detail of school') . ' ' . $school->name }}"
                                         class="inline-block"><i class="text-blue-500 icono fa-solid fa-eye"></i></a>
                                     <a href="{{ route('schools.edit', $school->id) }}"
                                         title="{{ __('edit school') . ' ' . $school->name }}" class="inline-block"><i
-                                            class="text-blue-500 icono fa-solid fa-newspaper"></i></a>
+                                            class="text-blue-500 icono fa-solid fa-pencil"></i></a>
                                     <form action="{{ route('schools.destroy', $school->id) }}" method="POST"
                                         class="inline-block form-delete">
                                         <meta name="csrf-token" content="{{ csrf_token() }}">
                                         @method('DELETE')
-                                        <button type="submit"><i
-                                                title="{{ __('delete school') . ' : ' . $school->name }}"
+                                        <button type="submit">
+
+                                            <i title="{{ __('delete school') . ' : ' . $school->name }}"
                                                 class="text-red-500 icono fa-solid fa-trash-can"></i></button>
                                     </form>
                                     <a href="{{ route('schools.sedes.create', $school->id) }}"
-                                        title="{{ __('add sede to school') . ' ' . $school->name }}"><i
-                                            class="text-blue-500 icono fa-solid fa-code-fork"></i></a>
+                                        title="{{ __('add sede to school') . ' ' . $school->name }}">
+                                        <i class="fa-solid icono fa-arrows-split-up-and-left"></i>
+                                    </a>
                                     <a href="{{ route('schools.administrator', $school->id) }}" class="text-green-600"
                                         title="{{ __('assign administrator to school') }}">
                                         <i class="fa-solid fa-user-tie icono"></i>

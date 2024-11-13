@@ -41,7 +41,7 @@ class SchoolSedeController extends Controller
     {
         //dd($request->all(), $school);
         $sede = Sede::create([
-            'name' => mb_strtolower($request->input('name')),
+            //'name' => mb_strtolower($request->input('name')),
             'address' => mb_strtolower($request->input('address')),
             'department' => mb_strtolower($request->input('department')),
             'municipality' => mb_strtolower($request->input('municipality')),
@@ -117,10 +117,10 @@ class SchoolSedeController extends Controller
         $school = $sede->school;
         $room = new Room();
         $room->sede_id = $sede->id;
-        $room->school_id = $sede->school->id;
+        $room->school_id = $sede->school_id;
         $room->name = 'aula';
         $rooms = $sede->rooms;
-        $title = 'create room to';
+        $title = __('create room to');
         return view('super.sedes.room_create', compact('school', 'sede', 'rooms', 'room', 'title'));
     }
 
@@ -159,7 +159,22 @@ class SchoolSedeController extends Controller
         // $room->name = 'aula';
         // $rooms = $sede->rooms;
         $title = 'assign mannager to';
-        return view('super.sedes.manager_create', compact('school', 'sede',  'title'));
+        return view('super.sedes.manager_create', compact('school', 'sede', 'title'));
+    }
+
+
+    public function coordinator_create($id)
+    {
+        //dd($id);
+        $sede = Sede::find($id);
+        $school = $sede->school;
+        // $room = new Room();
+        // $room->sede_id = $sede->id;
+        // $room->school_id = $sede->school->id;
+        // $room->name = 'aula';
+        // $rooms = $sede->rooms;
+        $title = 'assign mannager to';
+        return view('super.sedes.coordinator_create', compact('school', 'sede', 'title'));
     }
 
     public function grados_create($id)
@@ -191,6 +206,7 @@ class SchoolSedeController extends Controller
             }
         }
         $message = __('grados created successfully');
-        return redirect()->route('sedes.index')->with('success', $message);;
+        return redirect()->route('sedes.index')->with('success', $message);
+        ;
     }
 }

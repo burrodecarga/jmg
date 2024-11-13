@@ -22,3 +22,11 @@ Route::get('/manager', function (Request $request) {
         //    ->rawColumns(['btn'])
         ->toJson();
 });
+
+Route::get('/coordinator', function (Request $request) {
+    return datatables()->of(User::with('roles'))
+        //    ->addColumn('btn', 'admin.sedes.actions')
+        //    ->rawColumns(['btn'])
+        ->toJson();
+});
+

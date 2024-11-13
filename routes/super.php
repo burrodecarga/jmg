@@ -23,6 +23,9 @@ Route::get('/schools/sedes/{id}', [SchoolController::class, 'show_sede'])->name(
 Route::get('/schools/sedes/room_create/{id}', [SchoolSedeController::class, 'room_create'])->name('schools.sedes.room_create');
 Route::post('/schools/sedes/room_store', [SchoolSedeController::class, 'room_store'])->name('schools.sedes.room_store');
 Route::get('/schools/sedes/manager_create/{id}', [SchoolSedeController::class, 'manager_create'])->name('schools.sedes.manager_create');
+
+Route::get('/schools/sedes/coordinator_create/{id}', [SchoolSedeController::class, 'coordinator_create'])->name('schools.sedes.coordinator_create');
+
 Route::get('/schools/sedes/grados_create/{id}', [SchoolSedeController::class, 'grados_create'])->name('schools.sedes.grados_create');
 Route::post('/schools/sedes/grados_store', [SchoolSedeController::class, 'grados_store'])->name('schools.sedes.grados_store');
 

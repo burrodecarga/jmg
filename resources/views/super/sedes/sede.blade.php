@@ -1,8 +1,8 @@
 <x-admin-layout>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css">
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/dataTables.bootstrap5.min.css"> --}}
     <x-slot name="header">
-        <h2 class="w-full text-xl font-semibold capitalize sm:w-full md:w-3/4">{{ __('school adminitration panel') }}
+        <h2 class="w-full text-xl font-semibold capitalize sm:w-full md:w-3/4">{{ __('sede adminitration panel') }}
         </h2>
     </x-slot>
 
@@ -10,7 +10,7 @@
         <div class="mx-auto text-center w-5/4 card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
-                    <h4>
+                    <h4 class="text-white">
                         {{ __('school sede') }}
                     </h4>
 

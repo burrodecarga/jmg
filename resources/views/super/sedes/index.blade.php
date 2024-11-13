@@ -11,7 +11,7 @@
         <div class="w-full mx-auto text-center card">
             <div class="text-white card-header bg-primary">
                 <div class="flex items-center justify-between card-title">
-                    <h4>
+                    <h4 class="text-white">
                         {{ __('list of school locations') }}
                     </h4>
                 </div>
@@ -30,19 +30,19 @@
                     <tbody class="text-sm">
                         @foreach ($sedes as $sede)
                             <tr class="odd:bg-slate-100">
-                                <td width="25%" class="text-xs text-left">{{ $sede->school->name }}</td>
+                                <td width="25%" class="text-xs text-left">{{ $sede->school }}</td>
                                 <td width="25%" class="text-left">{{ $sede->name }}</td>
                                 <td width="15%" class="text-left">{{ $sede->department }}</td>
                                 <td width="15%" class="text-left">{{ $sede->municipality }}</td>
                                 <td class="flex gap-3 text-center" width="">
-                                    <a href="{{ route('schools.sedes.show', [$sede->school->id, $sede->id]) }}"
+                                    <a href="{{ route('schools.sedes.show', [$sede->school_id, $sede->id]) }}"
                                         title="{{ __('view detail of sede') . ' ' . $sede->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-eye"></i></a>
                                     <a href="{{ route('schools.sedes.room_create', [$sede->id]) }}"
                                         title="{{ __('add classroom or premises to the school headquarters') . ' ' . $sede->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-people-roof"></i></a>
-                                    <a href="{{ route('schools.sedes.manager_create', [$sede->id]) }}"
-                                        title="{{ __('assign manager to the school headquarters') . ' ' . $sede->name }}"><i
+                                    <a href="{{ route('schools.sedes.coordinator_create', [$sede->id]) }}"
+                                        title="{{ __('assign coordinator to the school headquarters') . ' ' . $sede->name }}"><i
                                             class="text-blue-500 icono fa-solid fa-user-tie"></i></a>
                                     <a href="{{ route('schools.sedes.grados_create', [$sede->id]) }}"
                                         title="{{ __('add grados to be taught at headquarters') . ' ' . $sede->name }}"><i
