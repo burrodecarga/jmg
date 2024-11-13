@@ -8,6 +8,11 @@
         ['name' => 'resources', 'route' => route('resources.index'), 'active' => request()->routeIs('resources.index')],
         ['name' => 'grados', 'route' => route('grados.index'), 'active' => request()->routeIs('grados.index')],
         [
+            'name' => 'administrators',
+            'route' => route('administrators.index'),
+            'active' => request()->routeIs('administrators.index'),
+        ],
+        [
             'name' => 'coordinators',
             'route' => route('coordinators.index'),
             'active' => request()->routeIs('coordinators.index'),
@@ -134,6 +139,10 @@
                         </div>
 
                         <x-dropdown-link href="{{ route('profile.show') }}">
+                            Role:{{ Auth::user()->roles->pluck('name')->join('') }}
+                        </x-dropdown-link>
+
+                        <x-dropdown-link href="{{ route('profile.show') }}">
                             {{ __('Profile') }}
                         </x-dropdown-link>
 
@@ -204,6 +213,10 @@
 
     <div class="mt-3 space-y-1">
         <!-- Account Management -->
+        <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
+            Role:{{ Auth::user()->roles->pluck('name')->join('') }}
+        </x-responsive-nav-link>
+
         <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
             {{ __('Profile') }}
         </x-responsive-nav-link>

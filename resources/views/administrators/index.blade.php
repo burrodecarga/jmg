@@ -27,7 +27,7 @@
                 <h2 class="text-sm font-semibold leading-tight text-gray-800 uppercase">
                     <span class="uppercase">
                         <span class="text-xs uppercase">
-                            {{ auth()->user()->school->first()->name ?? 'No es Coordinador de Escuela' }}
+                            {{ auth()->user()->coordina->first()->name ?? 'No es Coordinador de Sede' }}
                         </span>
                     </span>
                 </h2>

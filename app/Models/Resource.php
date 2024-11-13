@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 class Resource extends Model
 {
@@ -13,5 +14,12 @@ class Resource extends Model
         'category',
         'description',
         'quantity',
+        'resourceable_id',
+        'resourseable_type'
     ];
+
+    public function resourceable()
+    {
+        return $this->morphTo();
+    }
 }

@@ -43,7 +43,7 @@
                         @foreach ($rooms as $room)
                             <tr class="odd:bg-slate-100">
                                 <td width="5%" class="text-left">{{ $room->id }}</td>
-                                <td width="20%" class="text-left">{{ $room->sede->school->name }}</td>
+                                <td width="20%" class="text-left">{{ $room->sede->school }}</td>
                                 <td width="20%" class="text-left">{{ $room->sede->name }}</td>
                                 <td width="20%" class="text-left">{{ $room->name }}</td>
                                 <td width="10%" class="text-left">{{ $room->width }}</td>

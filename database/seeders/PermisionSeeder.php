@@ -121,6 +121,9 @@ class PermisionSeeder extends Seeder
 
         Permission::create(['name' => 'padre.asignar', 'privilege' => 'padre asignar']);
         Permission::create(['name' => 'padres', 'privilege' => 'padre inscribir']);
+        Permission::create(['name' => 'administrators', 'privilege' => 'administrar escuela']);
+        Permission::create(['name' => 'coordinators', 'privilege' => 'coordinar escuelas']);
+
 
 
 
@@ -131,11 +134,11 @@ class PermisionSeeder extends Seeder
         //$super_admin_permissions=[];
         $coordinator_permissions = [8, 9, 10, 11, 12, 13, 14, 57, 58, 58, 60, 61, 62, 63];
         $teacher_permissions = [64, 65, 66, 67, 68, 69, 70];
-        $admin_permissions = [2, 44, 45, 46, 47, 48, 49, 50];
+        $admin_permissions = [80];
         $parent_permissions = [];
         $superAdmin = Role::findByName('super-admin');
-        $coordinator = Role::findByName('coordinator');
         $admin = Role::findByName('administrator');
+        $coordinator = Role::findByName('coordinator');
         $parent = Role::findByName('parent');
         $teacher = Role::findByName('teacher');
         $superAdmin->givePermissionTo($super_admin_permissions);

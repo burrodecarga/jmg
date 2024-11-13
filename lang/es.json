@@ -402,5 +402,6 @@
     "school coordinator administration panel": "panel de administración de coordinadores de escuelas",
     "assign school administrator to": "asignar administrador de la escuela a",
     "assign sede administrator to": "asignar administrador de la sede escolar a",
-    "create room to": "crear aula para"
+    "create room to": "crear aula para",
+    "You do not yet have an assigned school to manage": "aún no tiene escuela asignada para administrar"
 }
